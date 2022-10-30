@@ -84,6 +84,21 @@
                 "kod_rank": "hazir",
                 "k_adi": "PsychoPath",
                 "date": "10/30/2022"
+            },
+            "v14 Invite Logger": {
+                "isim": "v14 Invite Logger",
+                "id": "9y8EaVCjiX",
+                "desc": "Kurulumu GitHub Sayfası Altında Mevcuttur.",
+                "modules": [
+                    "discord.js",
+                    " mongoDB"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/743456240037789726/a_700363050a7752c474db6e5a599ec2ab.png",
+                "main_code": "https://github.com/erenbaygun/v14-Invite-Logger",
+                "komutlar_code": "https://github.com/erenbaygun/v14-Invite-Logger",
+                "kod_rank": "hazir",
+                "k_adi": "Pyhton",
+                "date": "10/30/2022"
             }
         }
     }

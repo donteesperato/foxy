@@ -1,0 +1,54 @@
+<style>
+.avatar {
+  border-radius: 5% !important;  
+  border: 2px solid white;
+  padding: 1px;
+}
+#avatar2 {
+    width: 5px;
+    height: 5px;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    text-align:center;
+}
+    #avatar2:hover {g
+        transform: translate(0px,-20px);
+        -webkit-transform: translate(0px,-20px);
+	}
+  </style>
+<title>PsychoPath Techonology | {{kod.isim}}</title>
+<main>
+  <br><br><br>
+
+<div id="sunucusresmi">
+   <hr><b><center><img alt="Avatar" src="{{kod.icon}}" class="avatar"> <h3 class="text-center text-light font-weight-bolder" style="margin: 1rem;">{{kod.k_adi}}</h3></center></b> <hr>
+</div>
+  <center>
+  <br>
+  <h3 class="text-center text-light font-weight-bolder" style="margin: 1rem;">Kod İsmi: {{kod.isim}}</h3>
+  
+  <h5 class="text-center text-light font-weight-light">Kod Açıklaması: {{kod.desc}}</h5>
+  <hr>
+  
+  <h7 class="text-center text-light font-weight-light">Gerekli Moduller: <kbd>{{kod.modules}}</kbd></h5>
+  <hr>
+  </center>
+  <center><p class="h5">Main Dosya</p></center>
+  <pre class="kodyazirengi">
+    <code>{{kod.main_code}}</code>
+  </pre>
+  <code id="code_main" hidden>{{kod.main_code}}</code>
+  <!-- <button type="button" class="btn btn-outline-success btn-lg btn-block" style="margin: 1rem;" id="copy_main">Kodu Kopyala</button> -->
+  <center><p class="h5">Komutlar Klasörü</p></center>
+  <pre class="kodyazirengi">
+    <code>{{kod.komutlar_code}}</code>
+  </pre>
+<code id="code_komutlar" hidden>{{kod.komutlar_code}}</code>
+<!-- <button type="button" class="btn btn-outline-success btn-lg btn-block" style="margin: 1rem;" id="copy_komutlar">Kodu Kopyala</button> -->
+<center><a href="/sil/{{kod.kod_rank}}/{{kod.id}}" class="btn btn-outline-danger btn-lg btn-block" style="margin: 1rem;">Kodu Sil</a></center>
+</main>
+<!--Start of Tawk.to Script-->
+<script src="//code.tidio.co/wnbubljansidf3tl7zkc2kxgjc8cw6g9.js" async></script>
+
+<!--End of Tawk.to Script-->
+    

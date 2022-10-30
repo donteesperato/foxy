@@ -1,0 +1,76 @@
+[
+    {
+        "kodlar": {
+            "Efsane Botlist": {
+                "isim": "Efsane Botlist",
+                "id": "rTt7fJdOR2",
+                "desc": "Efsane Botlist V12",
+                "modules": [
+                    "Yok"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "https://github.com/MonsterBotTechonolgy/gercek-botlist\r\n\r\n<https://discord.gg/TUWPYnRVQp\r\n\r\nCusty",
+                "komutlar_code": "https://github.com/MonsterBotTechonolgy/gercek-botlist\r\n\r\n<https://discord.gg/TUWPYnRVQp\r\n\r\nCusty",
+                "kod_rank": "hazir",
+                "k_adi": "! PsychoPath",
+                "date": "9/7/2022"
+            },
+            "Siteli Botlist": {
+                "isim": "Siteli Botlist",
+                "id": "iHr8b5eaXA",
+                "desc": "Siteli Botlist",
+                "modules": [
+                    "Yok"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "https://github.com/MonsterBotTechonolgy/siteli-botlist",
+                "komutlar_code": "https://github.com/MonsterBotTechonolgy/siteli-botlist",
+                "kod_rank": "hazir",
+                "k_adi": "! PsychoPath",
+                "date": "9/10/2022"
+            },
+            "Butonlu Ticket v12": {
+                "isim": "Butonlu Ticket v12",
+                "id": "sySOkt5CJS",
+                "desc": "Butonlu Ticket v12",
+                "modules": [
+                    "Yok"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/344b75958d412342c048020de1b8b01d.png",
+                "main_code": "https://github.com/MonsterBotTechonolgy/Psycho-Ticket-\r\n\r\n",
+                "komutlar_code": "https://github.com/MonsterBotTechonolgy/Psycho-Ticket-\r\n\r\n",
+                "kod_rank": "hazir",
+                "k_adi": "! PsychoPath",
+                "date": "10/2/2022"
+            },
+            "v14 Slash Music Bot": {
+                "isim": "v14 Slash Music Bot",
+                "id": "5vXfWar8XS",
+                "desc": "v14 Slash Music Bot",
+                "modules": [
+                    "discord.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/743456240037789726/a_0ecb4b9d480596740491b2953cd03f0d.png",
+                "main_code": "https://dosya.co/kg7h1yslv4wi/Discord-MusicBot-master.rar.html\r\n",
+                "komutlar_code": "https://dosya.co/kg7h1yslv4wi/Discord-MusicBot-master.rar.html\r\n",
+                "kod_rank": "hazir",
+                "k_adi": "Pyhton",
+                "date": "10/18/2022"
+            },
+            "English+music ": {
+                "isim": "English+music ",
+                "id": "hgzjScICFZ",
+                "desc": "English music",
+                "modules": [
+                    "Glitch"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/893771457971236885/153d985b8b800162f3639c614f6c18b3.png",
+                "main_code": "https://github.com/shaynmorgan/otterBot.git",
+                "komutlar_code": "https://github.com/shaynmorgan/otterBot.git",
+                "kod_rank": "hazir",
+                "k_adi": "๕ۣۜZΞUS™",
+                "date": "10/22/2022"
+            }
+        }
+    }
+]

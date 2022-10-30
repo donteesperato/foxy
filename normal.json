@@ -1,0 +1,348 @@
+[
+    {
+        "kodlar": {
+            "Botu sese sok ": {
+                "isim": "Botu sese sok ",
+                "id": "At6Ys3aTBt",
+                "desc": "Botu sese sok V12",
+                "modules": [
+                    "bot.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/9da1ea40e026f1489ec84a975ec04ba3.png",
+                "main_code": "client.on('ready', () => {\r\n   client.channels.cache.get('Sese girilecek kanalın idsi').join();\r\n})",
+                "komutlar_code": "Yok",
+                "kod_rank": "normal",
+                "k_adi": "PsychoPath Developer",
+                "date": "7/25/2022"
+            },
+            "Değişen Sunucu İsmi": {
+                "isim": "Değişen Sunucu İsmi",
+                "id": "sEwgqZR3WP",
+                "desc": "Değişen Sunucu İsmi V12",
+                "modules": [
+                    "bot.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/9da1ea40e026f1489ec84a975ec04ba3.png",
+                "main_code": "client.on('ready', async message => {\r\n   \r\nsetInterval(() => {\r\nconst psycho = client.guilds.cache.get(\"Sunucuid\")\r\nif(!psycho){\r\nconsole.log(\"Lütfen bir sunucu ismi girin\")\r\n}\r\nif(psycho){\r\n  setTimeout(() => {\r\n psycho.setName(\"PsychoPath  #FreeCode\")\r\n  }, 1000) //1000=1saniye\r\n  \r\n    setTimeout(() => {\r\n  psycho.setName(\"PsychoPath #YetkiliAlım\")\r\n  }, 2000)//1000=1saniye\r\n  \r\n    setTimeout(() => {\r\n  psycho.setName(\"PsychoPath\")\r\n  }, 2000)//1000=1saniye\r\n  \r\n      setTimeout(() => {\r\n  psycho.setName(\"PsychoPath #Botlist\")\r\n  }, 2000)//1000=1saniye\r\n}\r\n}, 2000) //döngü aralığı \r\n  })",
+                "komutlar_code": "Yok",
+                "kod_rank": "normal",
+                "k_adi": "PsychoPath Developer",
+                "date": "7/25/2022"
+            },
+            "Temizle": {
+                "isim": "Temizle",
+                "id": "N6hcP2FNnz",
+                "desc": "Belirlenen miktarda mesajı sil",
+                "modules": [
+                    "sil.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/9da1ea40e026f1489ec84a975ec04ba3.png",
+                "main_code": "Yok",
+                "komutlar_code": "const Discord = require('discord.js');\r\n\r\nexports.run = function(client, message, args) {\r\n    let bs = args.slice(0).join('+');\r\n  \r\n  let id = Number(args[0]);\r\n  \r\n\r\n   \r\n    if(isNaN(id)) return message.channel.send(\"Lütfen Sayı Giriniz, Örnek: !temizle 10\");\r\nif(!message.member.hasPermission(\"MANAGE_MESSAGES\")) return message.reply(\"Bu Komutu Kullanmak İçin İzniniz Yok!\");\r\nif(!args[0]) return message.channel.send(\"Hey, Lütfen Temizlenecek Mikatarı Belirtiniz!\");\r\nmessage.channel.bulkDelete(args[0]).then(() => {\r\nmessage.channel.send(` ${args[0]} Adet Mesaj Silindi 🚀`).then(msg => msg.delete(1000));\r\n  \r\n})\r\n}\r\n\r\nexports.conf = {\r\n  enabled: true,\r\n  guildOnly: true,\r\n  aliases: ['sil','süpür','temiz'],\r\n  permLevel: 3\r\n};\r\n\r\nexports.help = {\r\n  name: 'temizle',\r\n  description: 'Belirlenen miktarda mesajı siler.',\r\n  usage: 'temizle <silinicek mesaj sayısı>'\r\n};",
+                "kod_rank": "normal",
+                "k_adi": "PsychoPath Developer",
+                "date": "7/26/2022"
+            },
+            "Slashlı Banner": {
+                "isim": "Slashlı Banner",
+                "id": "ZDjLMzFnBM",
+                "desc": "V13",
+                "modules": [
+                    "banner.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/9da1ea40e026f1489ec84a975ec04ba3.png",
+                "main_code": "Yok",
+                "komutlar_code": "const { MessageActionRow } = require(\"discord.js\");\r\nconst { MessageButton } = require(\"discord.js\");\r\nconst { MessageEmbed } = require(\"discord.js\")\r\nconst axios = require(\"axios\");\r\nmodule.exports = {\r\n    name:\"Banner\",\r\n    description: 'Belirtilen kullanıcının Afişini gösterir',\r\n    type:'CHAT_INPUT',\r\n    category:\"genel\",\r\n    options: [\r\n        {\r\n            name:\"user\",\r\n            description:\"Kullanıcı Seçin\",\r\n            type:6,\r\n        },\r\n    ],\r\n    run: async (client, interaction) => {\r\n        const veri = interaction.options.getMember('user') ? interaction.options.getMember('user').user.id : interaction.member.user.id;\r\n       const id = interaction.guild.members.cache.has(veri) ? interaction.guild.members.cache.get(veri).id : interaction.member.user.id\r\n      const adam = interaction.guild.members.cache.get(id)\r\n      \r\n       axios\r\n      .get(https://discord.com/api/users/${id},{\r\n        headers: {\r\n          Authorization: Bot ${client.token},\r\n        },\r\n      })\r\n      .then((res) =>{\r\n        const {banner, accentcolor} = res.data;\r\n\r\n        if(banner){\r\n          const extention = banner.startsWith(\"a\") ? \".gif\" : \".png\";\r\n          const url = https://cdn.discordapp.com/banners/${id}/${banner}${extention}?size=4096;\r\n          const but = new MessageButton().setLabel(\"Tarayıcıda Göster\").setStyle(\"LINK\").setURL(url)const embed = new MessageEmbed()\r\n          .setColor(accent_color)\r\n          .setFooter({text:${interaction.member.user.tag} tarafından istendi,iconURL:interaction.member.user.avatarURL({dynamic:true})})\r\n          .setAuthor({\r\n            name:${adam.user.username} Banner, iconURL:adam.user.avatarURL({ dynamic: true, size: 1024 })\r\n          })\r\n          .setImage(url);\r\n            interaction.reply({embeds:[embed],components:[new MessageActionRow().addComponents(but)]});\r\n        }\r\n        else{\r\n          const embed2 = new MessageEmbed().setDescription('Kullanıcıda banner bulunmuyor').setColor(accent_color);\r\n          interaction.reply({embeds:[embed2]})\r\n        }\r\n      })\r\n    }\r\n} ",
+                "kod_rank": "normal",
+                "k_adi": "PsychoPath Developer",
+                "date": "7/26/2022"
+            },
+            "Emojiler": {
+                "isim": "Emojiler",
+                "id": "1HEjuBprhb",
+                "desc": "Emojiler v12",
+                "modules": [
+                    "emoji.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/9da1ea40e026f1489ec84a975ec04ba3.png",
+                "main_code": "Yok",
+                "komutlar_code": "const Discord = require(\"discord.js\");\r\n\r\nexports.run = async(client, msg, args) => {\r\n\r\n        let animEmotes = [],\r\n            staticEmotes = [];\r\n  var guild = msg.guild\r\n\r\n        guild.emojis.cache.forEach((e) => {\r\n            e.animated ? animEmotes.push(`<a:${e.name}:${e.id}>`) : staticEmotes.push(`<:${e.name}:${e.id}>`);\r\n        });\r\n        staticEmotes = staticEmotes.length !== 0 ? `__**[${staticEmotes.length}] Normal Emoji**__\\n${staticEmotes.join('')}` : '\\n**Normal Emoji Bulunmuyor**';\r\n        animEmotes = animEmotes.length !== 0 ? `\\n\\n__**[${animEmotes.length}] Hareketli Emoji**__\\n${animEmotes.join('')}` : '\\n**Hareketli Emoji Bulunmuyor**';\r\n        try {     \r\n  let botembed = new Discord.MessageEmbed()\r\n            .setColor(`RANDOM`)\r\n            .setDescription(staticEmotes + animEmotes)\r\n            .setAuthor(`${msg.guild.name} Sunucusu Emojileri`, msg.guild.iconURL())\r\n    .setFooter('Bu komutu kullanan kullanıcı ' + msg.author.tag, msg.author.avatarURL())\r\n            .setTimestamp()\r\n        return msg.channel.send(botembed)\r\n      } catch (err) {\r\n        const embed = new Discord.MessageEmbed()\r\n            .addField(`Sunucuda Bulunan Emojiler`, 'Üzgünüm ama sunucunuzda ya çok fazla emoji bulunuyor ya da hiç emoji bulunmuyor. Bunları gösteremiyorum. Discord buna izin vermiyor.')\r\n            .setColor('RED')\r\n          .setFooter('Bu komutu kullanan kullanıcı ' + msg.author.tag, msg.author.avatarURL())\r\n            .setTimestamp()\r\n        msg.channel.send(embed)\r\n                              \r\n    }\r\n}\r\n//GNARGE BOT ALTYAPISIN'DAN BU DOSYAYA AKTARILMIŞTIR!\r\nexports.conf = {\r\n aliases: ['emoji-liste'],\r\n permLevel: 0,\r\n kategori: 'Sunucu'\r\n};\r\n\r\nexports.help = {\r\n name: 'emojiler',\r\n description: 'Sunucudaki tüm emojileri gösterir.',\r\n usage: 'emojiler'\r\n}; ",
+                "kod_rank": "normal",
+                "k_adi": "PsychoPath Developer",
+                "date": "7/28/2022"
+            },
+            "Afk": {
+                "isim": "Afk",
+                "id": "G5mXji8aS9",
+                "desc": "Afk profsyonel",
+                "modules": [
+                    "bot.js",
+                    " afk.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "const ms = require(\"parse-ms\");\r\nconst { DiscordAPIError } = require(\"discord.js\");\r\n\r\nclient.on(\"message\", async message => {\r\n  if (message.author.bot) return;\r\n  if (!message.guild) return;\r\n  if (message.content.includes(`afk`)) return;\r\n\r\n  if (await db.fetch(`afk_${message.author.id}`)) {\r\n    db.delete(`afk_${message.author.id}`);\r\n    db.delete(`afk_süre_${message.author.id}`);\r\n\r\n    const embed = new Discord.MessageEmbed()\r\n\r\n      .setColor(\"#00ff00\")\r\n      .setAuthor(message.author.username, message.author.avatarURL)\r\n      .setDescription(`${message.author.username} Artık \\`AFK\\` Değilsin.`);\r\n\r\n    message.channel.send(embed);\r\n  }\r\n\r\n  var USER = message.mentions.users.first();\r\n  if (!USER) return;\r\n  var REASON = await db.fetch(`afk_${USER.id}`);\r\n\r\n  if (REASON) {\r\n    let süre = await db.fetch(`afk_süre_${USER.id}`);\r\n    let timeObj = ms(Date.now() - süre);\r\n\r\n    const afk = new Discord.MessageEmbed()\r\n\r\n      .setColor(\"#00ff00\")\r\n      .setDescription(\r\n        `**Bu Kullanıcı AFK**\\n\\n**Afk Olan Kullanıcı :** \\`${USER.tag}\\`\\n**Afk Süresi :** \\`${timeObj.hours}saat\\` \\`${timeObj.minutes}dakika\\` \\`${timeObj.seconds}saniye\\`\\n**Sebep :** \\`${REASON}\\``\r\n      );\r\n\r\n    message.channel.send(afk);\r\n  }\r\n});",
+                "komutlar_code": "const db = require(\"quick.db\");\r\nconst Discord = require(\"discord.js\");\r\nconst ayarlar = require(\"../ayarlar.json\");\r\nlet prefix = ayarlar.prefix;\r\n\r\nexports.run = function(client, message, args) {\r\n\r\n  var USER = message.author;\r\n  var REASON = args.slice(0).join(\"  \");\r\n  const embed = new Discord.MessageEmbed()\r\n  .setColor(\"#00ff00\")\r\n  .setAuthor(message.author.username, message.author.avatarURL)\r\n  .setDescription(`Afk Olmak İçin Bir Sebep Belirtin.\\n\\n Örnek Kullanım : ${prefix}afk <sebep>`)\r\n  if(!REASON) return message.channel.send(embed)\r\n  db.set(`afk_${USER.id}`, REASON);\r\n  db.set(`afk_süre_${USER.id}`, Date.now());\r\n  const afk = new Discord.MessageEmbed()\r\n  .setColor(\"#00ff00\")\r\n  .setAuthor(message.author.username, message.author.avatarURL)\r\n  .setDescription(`Başarıyla ${REASON} Sebebiyle \\`Afk\\` Moduna Başarıyla Girildi.`)\r\n  message.channel.send(afk)\r\n \r\n};\r\n \r\nexports.conf = {\r\n  enabled: true,\r\n  guildOnly: true,\r\n  aliases: [],\r\n  permLevel: 0\r\n};\r\n \r\nexports.help = {\r\n  name: 'afk',\r\n  description: 'afk komutu',\r\n  usage: 'afk'\r\n};",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "8/4/2022"
+            },
+            "Hesap makinesi ": {
+                "isim": "Hesap makinesi ",
+                "id": "vpRXKhfLei",
+                "desc": "Hesap makinesi v12",
+                "modules": [
+                    "calc.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "Yok",
+                "komutlar_code": "const Discord = require('discord.js');\r\nexports.run = async(client, message, args) => {\r\n    let kerem = args[0]\r\n    let theartist = args[1]\r\n    let theartistt = args[2]\r\n    if(!kerem) return message.channel.send(\"Hangi işlem olsun? toplama/çıkarma/bölme/çarpma. !hesap-makinesi toplama 2 2 gibi kullan.\")\r\n    if(!theartist) return message.channel.send(\"1. sayıyı da yaz. Örnek Kullanım: !hesap-makinesi toplama 2 2\")\r\n    if(!theartistt) return message.channel.send(\"2. sayıyı da yaz. Örnek Kullanım: !hesap-makinesi toplama 2 2\")\r\n\r\n    let cikarma = theartist - theartistt\r\n    let carpma = theartist * theartistt\r\n    let bolme = theartist / theartistt\r\n    \r\n    if(kerem == \"toplama\") {\r\n        let sj = parseInt(args[1])\r\n        let sjsj = parseInt(args[2]) //PsychoPath\r\n        message.channel.send(sj + sjsj)\r\n    }\r\n    \r\n    if(kerem == \"çıkarma\") {\r\n        message.channel.send(cikarma)\r\n    }\r\n    \r\n    if(kerem == \"çarpma\") {\r\n        message.channel.send(carpma)\r\n    }\r\n    \r\n    if(kerem == \"bölme\") {\r\n        message.channel.send(bolme)\r\n    } \r\n};\r\nexports.conf = {\r\n    enabled: true,\r\n    guildOnly: true,\r\n    aliases: [\"hesapla\"],\r\n    permLevel: 0\r\n  };\r\n  \r\n  exports.help = {\r\n      name: 'calc',\r\n    description: 'Kalkulator',\r\n    usage: 'calc'\r\n  };",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "8/21/2022"
+            },
+            "Rol-bilgi": {
+                "isim": "Rol-bilgi",
+                "id": "9ZBENzICsX",
+                "desc": "Bir Rol Hakkında Bilgi Verir. ",
+                "modules": [
+                    "rol-bilgi.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "Yok",
+                "komutlar_code": "const emran = require(\"discord.js\");\r\nconst ayarlar = require(\"../ayarlar.json\");\r\nlet prefix = ayarlar.prefix;\r\n\r\nexports.run = async (client, msg, args) => {\r\n\r\n\r\n  let role =\r\n    msg.mentions.roles.first() ||\r\n    msg.guild.roles.cache.get(args[0]) ||\r\n    msg.guild.roles.cache.find(role => role.name === args.join(\" \"));\r\n  var moment = require(\"moment\");\r\n\r\n  var hata = new emran.MessageEmbed()\r\n    .setColor(\"#00ff00\")\r\n    .setDescription(\r\n      `🌐Gweep Creative  **Yanlış Kullanım** \\n Lütfen Bir Rol Etiketleyin Örnek: \\`${prefix}rolbilgi @Üye\\``\r\n    );\r\n  if (!role) return msg.channel.send(hata);\r\n\r\n  let hex = role.hexColor.toString().slice(1);\r\n  let embed = new emran.MessageEmbed()\r\n    .setThumbnail(`http://colorhexa.com/${hex}.png`)\r\n    .addField(\"Rol İsmi\", role.name, false)\r\n    .addField(`Rol ID`, role.id, false)\r\n    .addField(`Rol Tag`, role, false)\r\n    .addField(\r\n      `Etiketlenebilir mi?`,\r\n      role.mentionable ? \"\\n Evet\" : \"Hayır\",\r\n      false\r\n    )\r\n    .setColor(role.hexColor)\r\n    .addField(\"Renk\", role.hexColor, false)\r\n    .addField(\r\n      \"Rol Oluşturma Tarihi :\",\r\n      moment(role.createdAt).format(\"LL\"),\r\n      true\r\n    )\r\n    .setFooter(\r\n      \"Bu komutu kullanan kullanıcı \" + msg.author.tag,\r\n      msg.author.avatarURL({ format: \"png\", dynamic: true, size: 1024 })\r\n    )\r\n    .setTimestamp(role.createdAt);\r\n  msg.channel.send(embed);\r\n};\r\n\r\nexports.conf = {\r\n  enabled: true,\r\n  guildOnly: false,\r\n  aliases: [\"rol-info\", \"rolinfo\", \"rolbilgi\"],\r\n  permLevel: 0\r\n};\r\n\r\nexports.help = {\r\n  name: \"rol-bilgi\",\r\n  description: \"Bir Rol Hakkında Bilgi Verir.\",\r\n  usage: \"rol-bilgi\"\r\n};\r\n",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "9/10/2022"
+            },
+            "Yetkilerim": {
+                "isim": "Yetkilerim",
+                "id": "3tlg03e2Bi",
+                "desc": "Yetkilerim v12",
+                "modules": [
+                    "yetkilerim.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "Yok",
+                "komutlar_code": "const Discord = require(\"discord.js\");//PsychoPath\r\nconst { stripIndents } = require(\"common-tags\");\r\nconst ayarlar = require(\"../ayarlar.json\");\r\nlet prefix = ayarlar.prefix;\r\n\r\nexports.run = (client, msg, args) => {\r\n\r\n\r\n  let x;\r\n  let x2;\r\n  let x3;\r\n  let x4;\r\n  let x5;\r\n  let x6;\r\n  let x7;\r\n  let x8;\r\n  let x9;\r\n  let x10;\r\n  let x11;\r\n\r\n  //yönetici\r\n  if (msg.member.hasPermission(\"ADMINISTRATOR\"))\r\n    x = \"✔️\";\r\n  if (!msg.member.hasPermission(\"ADMINISTRATOR\"))\r\n    x = \"❌\";\r\n\r\n  //Denetim kaydı\r\n  if (msg.member.hasPermission(\"VIEW_AUDIT_LOG\"))\r\n    x2 = \"✔️\";\r\n  if (!msg.member.hasPermission(\"VIEW_AUDIT_LOG\"))\r\n    x2 = \"❌\";\r\n\r\n  //Sunucuyu yönet\r\n  if (msg.member.hasPermission(\"MANAGE_GUILD\"))\r\n    x3 = \"✔️\";\r\n  if (!msg.member.hasPermission(\"MANAGE_GUILD\"))\r\n    x3 = \"❌\";\r\n\r\n  //Rolleri yönet\r\n  if (msg.member.hasPermission(\"MANAGE_ROLES\"))\r\n    x4 = \"✔️\";\r\n  if (!msg.member.hasPermission(\"MANAGE_ROLES\"))\r\n    x4 = \"❌\";\r\n\r\n  //Kanalları yönet\r\n  if (msg.member.hasPermission(\"MANAGE_CHANNELS\"))\r\n    x5 = \"✔️\";\r\n  if (!msg.member.hasPermission(\"MANAGE_CHANNELS\"))\r\n    x5 = \"❌\";\r\n\r\n  //üyeleri at\r\n  if (msg.member.hasPermission(\"KICK_MEMBERS\"))\r\n    x6 = \"✔️\";\r\n  if (!msg.member.hasPermission(\"KICK_MEMBERS\"))\r\n    x6 = \"❌\";\r\n\r\n  //üyeleri yasakla\r\n  if (msg.member.hasPermission(\"BAN_MEMBERS\"))\r\n    x7 = \"✔️\";\r\n  if (!msg.member.hasPermission(\"BAN_MEMBERS\"))\r\n    x7 = \"❌\";\r\n\r\n  //mesajları yönet\r\n  if (msg.member.hasPermission(\"MANAGE_MESSAGES\"))\r\n    x8 = \"✔️\";\r\n  if (!msg.member.hasPermission(\"MANAGE_MESSAGES\"))\r\n    x8 = \"❌\";\r\n\r\n  //kullanıcı adlarını yönet\r\n  if (msg.member.hasPermission(\"MANAGE_NICKNAMES\"))\r\n    x9 = \"✔️\";\r\n  if (!msg.member.hasPermission(\"MANAGE_NICKNAMES\"))\r\n    x9 = \"❌\";\r\n\r\n  //emojileri yönet\r\n  if (msg.member.hasPermission(\"MANAGE_EMOJIS\"))\r\n    x10 = \"✔️\";\r\n  if (!msg.member.hasPermission(\"MANAGE_EMOJIS\"))\r\n    x10 = \"❌\";\r\n\r\n  //webhookları yönet\r\n  if (msg.member.hasPermission(\"MANAGE_WEBHOOKS\"))\r\n    x11 = \"✔️\";\r\n  if (!msg.member.hasPermission(\"MANAGE_WEBHOOKS\"))\r\n    x11 = \"❌\";\r\n\r\n  msg.channel.send(\r\n    new Discord.MessageEmbed()\r\n      .setColor(\"#00ff00\")\r\n      .setAuthor(`PsychoPath  | Yetkilerim Tablo`)//PsychoPath\r\n\r\n      .setThumbnail(\r\n      \"https://media.giphy.com/media/WYkFKxyoQhCw7P7KlF/giphy.gif\"\r\n       )\r\n      .setDescription(stripIndents`\r\n\r\n${x} Yönetici\r\n${x2} Denetim Kaydını Görüntüle\r\n${x3} Sunucuyu Yönet\r\n${x4} Rolleri Yönet\r\n${x5} Kanalları Yönet\r\n${x6} Üyeleri At\r\n${x7} Üyeleri Yasakla\r\n${x8} Mesajları Yönet\r\n${x9} Kullanıcı Adlarını Yönet\r\n${x10} Emojileri Yönet\r\n${x11} Webhook'ları Yönet\r\n     \r\n   `)\r\n  );\r\n};\r\n\r\nexports.conf = {\r\n  enabled: true,\r\n  guildOnly: false,\r\n  aliases: [\"izinlerim\"],\r\n  permLevel: 0,\r\n  kategori: \"kullanıcı\"\r\n};\r\n\r\nexports.help = {\r\n  name: \"yetkilerim\",\r\n  description:\r\n    \"Komutu kullandığınız sunucudaki yetkilerinizi/izinlerinizi gösterir.\",\r\n  usage: \"yetkilerim\"\r\n};\r\n//PsychoPath",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "9/10/2022"
+            },
+            "Yılbaşı": {
+                "isim": "Yılbaşı",
+                "id": "ZN7NWnZjs6",
+                "desc": "v12",
+                "modules": [
+                    "yılbaşı.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "yok",
+                "komutlar_code": "const Discord = require('discord.js');\r\nconst ms = require('parse-ms');\r\n\r\nexports.run = async(client, message, args) => {\r\n  let yil = new Date('2023-01-01 00:00:00')\r\n    let zaman = ms(yil - Date.now())\r\n\r\n    message.channel.send(`Yılbaşının kutlanmasına **${zaman.days}** gün **${zaman.hours}** saat **${zaman.minutes}** dakika **${zaman.seconds}** saniye kaldı!`)\r\n\r\n}\r\n\r\nexports.conf = {\r\n  enabled: true,\r\n  guildOnly: false,\r\n  aliases: ['yilbasi', 'yılbaşı'],\r\n  permLevel: 0\r\n};\r\n\r\nexports.help = {\r\n  name: 'yılbaşı',\r\n\r\n  description: 'Yılbaşının kutlanmasına kaç gün kaç saat kaç dakika kaç saniye olduğunu gösterir.',\r\n  usage: 'yılbaşı'\r\n};",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "9/14/2022"
+            },
+            "Mod log": {
+                "isim": "Mod log",
+                "id": "ceGL6E9CV5",
+                "desc": "Mod-Log kanalını belirler.v12",
+                "modules": [
+                    "modlog.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "yok",
+                "komutlar_code": "const Discord = require(\"discord.js\");\r\nconst db = require(\"quick.db\");\r\nlet prefix = process.env.prefix;\r\nconst ayarlar = require(\"../ayarlar.json\");\r\n\r\nexports.run = async (client, message, args) => {\r\n  \r\n  let prefix = ayarlar.prefix;\r\n  if (!message.member.hasPermission(\"ADMINISTRATOR\"))\r\n    return message.channel.send(\r\n      ` Bu komutu kullanabilmek için \"\\`Yönetici\\`\" yetkisine sahip olmalısın.`\r\n    );\r\n\r\n  let logk = message.mentions.channels.first();\r\n  let logkanal = await db.fetch(`log_${message.guild.id}`);\r\n\r\n  if (args[0] === \"sıfırla\" || args[0] === \"kapat\") {\r\n    if (!logkanal)\r\n      return message.channel.send(\r\n        new Discord.MessageEmbed()\r\n          .setColor(\"#00ff00\")\r\n          .setDescription(`ModLog Kanalı Zaten Ayarlı Degil.`)\r\n      );\r\n    db.delete(`log_${message.guild.id}`);\r\n    message.channel.send(\r\n      new Discord.MessageEmbed()\r\n        .setColor(\"#00ff00\")\r\n        .setDescription(\r\n          `✅ | Mod-log kanalı başarıyla sıfırlandı.`\r\n        )\r\n    );\r\n    return;\r\n  }\r\n\r\n  if (!logk)\r\n    return message.channel.send(\r\n      new Discord.MessageEmbed()\r\n        .setColor(\"#00ff00\")\r\n        .setDescription(\r\n          `❌ Yanlış Kullanım \\n Doğru Kullanım: ${prefix}mod-log #kanal`\r\n        )\r\n    );\r\n\r\n  db.set(`log_${message.guild.id}`, logk.id);\r\n\r\n  message.channel.send(\r\n    new Discord.MessageEmbed()\r\n      .setColor(\"#00ff00\")\r\n      .setDescription(` Mod-log kanalı başarıyla ${logk} olarak ayarlandı.`)\r\n  );\r\n  message.react(\"✳️\");\r\n};\r\n\r\nexports.conf = {\r\n  enabled: true,\r\n  guildOnly: false,\r\n  aliases: [\"mod-log\", \"modlog\", \"log-ayarlama\"],\r\n  permLevel: 3,\r\n  kategori: \"moderasyon\"\r\n};\r\n\r\nexports.help = {\r\n  name: \"mod-log\",\r\n  description: \"Mod-Log kanalını belirler.\",\r\n  usage: \"mod-log <#kanal>\"\r\n};",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "9/14/2022"
+            },
+            "Ban": {
+                "isim": "Ban",
+                "id": "8EzIFQzyEe",
+                "desc": "üyeyi banlar ve üyeye dm mesaj gönderir",
+                "modules": [
+                    "ban.js",
+                    "ayarlar.json"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "yok",
+                "komutlar_code": "const Discord = require('discord.js')\r\nconst db = require('quick.db')\r\nconst ayarlar = require('../ayarlar.json')\r\nexports.run = async(client, message, args) => {\r\nconst Embed = new Discord.MessageEmbed()\r\n.setColor('BLUE')\r\n.setTitle('⚠ Hata!')\r\n.setDescription('Bu komutu kullanabilmek için `'+message.guild.roles.cache.find(Roller => Roller.id === ayarlar.BANYetkilisi).name+'` rolüne sahip olman gerekli.')\r\nif (!message.member.roles.cache.find(Rol => Rol.id === ayarlar.BANYetkilisi)) return message.channel.send(Embed).then(Message => Message.delete({timeout: 7500}))\r\nconst ptt = message.mentions.users.first()\r\nif (!ptt) return message.channel.send('Üye Etiketlemeniz Gerek.').then(Message => Message.delete({timeout: 7500}))\r\nmessage.react('✅')\r\nmessage.channel.send(`Ow Sh*t! ${message.author} Yargı Dağıtıyor! Bence Ona Yaklaşmayın!`)\r\nsetTimeout(async() => {\r\nptt.send(`\\`${message.guild.name}\\` Adlı Sunucudan \\`${message.author.tag}\\` Tarafından \\`${args.slice(1).join(' ') || 'Belirtilmedi'}\\` Sebebiyle Yasaklandın!`,{files:['https://cdn.discordapp.com/attachments/681905635482402817/773814044858777610/tenor_2.gif']})\r\nawait message.guild.members.cache.get(ptt.id).ban({reason : args.slice(1).join(' ') || 'Belirtilmedi'+' | By: '+message.author.tag})\r\n},2500)\r\n}\r\nexports.conf = {\r\n   enabled: true,\r\n   guildOnly: true,\r\n   aliases: ['ban'],\r\n   permLevel: 0\r\n}\r\n\r\nexports.help = {\r\n   name: 'Ban',\r\n   description: 'LOL!',\r\n   usage: 'ban'",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "9/14/2022"
+            },
+            "Bansay": {
+                "isim": "Bansay",
+                "id": "vlTykHWyXx",
+                "desc": "Sunucudan banlanan kişilerin sayısını gösterir",
+                "modules": [
+                    "bansay.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "yok",
+                "komutlar_code": "const Discord = require(\"discord.js\");\r\nconst ayarlar = require(\"../ayarlar.json\");\r\n\r\nexports.run = async (client, message) => {\r\n  let prefix = ayarlar.prefix;\r\n  let psycho = message.guild;\r\n  psycho\r\n    .fetchBans()\r\n    .then(psycho =>\r\n    message.channel.send(` Sunucunuzda ${psycho.size} banlanmış üye bulunmaktadır.`)\r\n  )\r\n    .catch(console.error);\r\n};\r\n\r\nexports.conf = {\r\n  enabled: true,\r\n  runIn: [\"bansay\"],\r\n  aliases: [\"bansay\"],\r\n  permLevel: 0\r\n};\r\n\r\nexports.help = {\r\n  name: \"bansay\",\r\n  description: \"Sunucudan banlanan kişilerin sayısını gösterir\",\r\n  usage: \"bansay\"\r\n};",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "9/14/2022"
+            },
+            "Yavaş mod": {
+                "isim": "Yavaş mod",
+                "id": "yLiLN8jwPx",
+                "desc": "Sohbete yazma sınır (süre) ekler.",
+                "modules": [
+                    "yavaşmod.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "yok",
+                "komutlar_code": "const Discord = require(\"discord.js\");\r\nconst db = require(\"quick.db\");\r\nconst client = new Discord.Client();\r\n\r\nconst ayarlar = require(\"../ayarlar.json\");\r\nlet prefix = ayarlar.prefix;\r\n\r\nexports.run = async (client, message, args) => {\r\n  if (message.channel.type !== \"text\") return;\r\n  const limit = args[0] ? args[0] : 0;\r\n  if (!limit) {\r\n    var embed = new Discord.MessageEmbed()\r\n      .setDescription(`Doğru kullanım: \\`${prefix}yavaşmod [0/10]\\``)\r\n      .setColor(`#ee7621`)\r\n      .setTimestamp();\r\n    message.channel.send({ embed });\r\n    return;\r\n  }\r\n  if (limit > 10) {\r\n    return message.channel.send(\r\n      new Discord.MessageEmbed()\r\n      .setColor(\"#00ff00\")\r\n        .setDescription(\r\n          \"⭕️  Süre limiti maksimum **10** saniye olabilir.\"\r\n        )\r\n    );\r\n  }\r\n  message.channel.send(\r\n    new Discord.MessageEmbed()\r\n    .setColor(\"#00ff00\")\r\n      .setDescription(\r\n        `<✅ Yazma süre limiti **${limit}** saniye olarak ayarlanmıştır.`\r\n      )\r\n  );\r\n  var request = require(\"request\");\r\n  request({\r\n    url: `https://discordapp.com/api/v7/channels/${message.channel.id}`,\r\n    method: \"PATCH\",\r\n    json: {\r\n      rate_limit_per_user: limit\r\n    },\r\n    headers: {\r\n      Authorization: `Bot ${client.token}`\r\n    }\r\n  });\r\n};\r\nexports.conf = {\r\n  enabled: true,\r\n  guildOnly: false,\r\n  aliases: [\"slow-mode\", \"yavas-mod\", \"yavasmod\", \"yavaşmod\"],\r\n  permLevel: 1\r\n};\r\n\r\nexports.help = {\r\n  name: \"slowmode\",\r\n  description: \"Sohbete yazma sınır (süre) ekler.\",\r\n  usage: \"slowmode [1/10]\"\r\n};",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "9/14/2022"
+            },
+            "Üye durum": {
+                "isim": "Üye durum",
+                "id": "PWxZoMDpru",
+                "desc": "İstatik",
+                "modules": [
+                    "üyedurum.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "yok",
+                "komutlar_code": "\r\nconst Discord = require(\"discord.js\");\r\n\r\nexports.run = (client, message) => {\r\n   if (!message.guild) {\r\n    const ozelmesajuyari = new Discord.MessageEmbed()\r\n    .setColor(0xFF0000)\r\n    .setTimestamp()\r\n    .setAuthor(message.author.username, message.author.avatarURL)\r\n    .addField('**Komutları Özel Mesajlarda Kullanılamaz!**')\r\n    return message.author.send(ozelmesajuyari); }\r\n  \r\n  let üye = new Discord.MessageEmbed()\r\n    .setAuthor(\"Üyedurum\")\r\n    .setColor(\"RED\")\r\n   .addField(\"**Toplam Kullanıcı**\",message.guild.memberCount )\r\n    .addField(\"**Çevrimiçi Kullanıcılar**\",message.guild.members.cache.filter(o => o.presence.status === 'online').size)\r\n  .addField(\"**Boşta Kullanıcılar**\",message.guild.members.cache.filter(o => o.presence.status === 'idle').size)\r\n.addField(\"**Rahatsız Etmeyindeki Kullanıcılar**\",message.guild.members.cache.filter(o => o.presence.status === 'dnd').size)\r\n.addField(\"**Çevrimdışı Kullanıcılar**\",message.guild.members.cache.filter(o => o.presence.status === 'offline').size)\r\n\r\n    .setTimestamp()\r\n  return message.channel.send(üye);\r\n};\r\n\r\nmodule.exports.conf = {\r\n  aliases: [\"üyedurum\"],\r\n  permLevel: 0,\r\n  enabled: true,\r\n  guildOnly: true\r\n};\r\n\r\nmodule.exports.help = {\r\n  name: \"üyedurum\",\r\n  description: \"\",\r\n  usage: \"\"\r\n};",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "9/22/2022"
+            },
+            "Sayfalı emoji": {
+                "isim": "Sayfalı emoji",
+                "id": "xVai0U9BOE",
+                "desc": "Sayfalı emoji",
+                "modules": [
+                    "Yok"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "yok",
+                "komutlar_code": "const Discord = require(\"discord.js\");\r\n\r\nexports.run = async (client, message) => {\r\n\r\nvar page = 0;\r\n  \r\nlet arr = [];\r\nlet emojiarr = message.guild.emojis.cache.array();\r\n\r\nfor(let i =0; Number(i + \"0\") < (Math.round(emojiarr.length/10)*10 +1); ++i) {//kafami sktm birda\r\nvar on = emojiarr.slice(Number(i + \"0\"), Number(i + \"0\")+10)\r\narr.push(on.toString())\r\n}\r\n//console.log(arr)\r\nlet embd = new Discord.MessageEmbed()\r\nmessage.channel.send(embd.setDescription(arr[0]).setFooter(`Sayfa ${page+1} / ${arr.length+1}`)).then(async msg => {\r\n      await msg.react(\"⬅️\");\r\n      await msg.react(\"➡️\");\r\n\r\n      let filter = (reaction, user) => user.id !== message.client.user.id && user.id === message.author.id;\r\n\r\n      var collector = msg.createReactionCollector(filter, {\r\n        time: 120000\r\n      });\r\n\r\n      collector.on(\"collect\", async (reaction, user) => {\r\n        switch (reaction.emoji.name) {\r\n          case \"⬅️\":\r\n            reaction.users.remove(user).catch(console.error);\r\n            if (page == 0) return;\r\n            --page\r\n\r\n              embd.setColor(\"RANDOM\");\r\n              embd.setFooter(`Sayfa ${page+1} / ${arr.length+1}`);\r\n              embd.setDescription(arr[page])\r\n            msg.edit(embd)\r\n           break;\r\n          case \"➡️\":\r\n            if (page == arr.length) return;\r\n            ++page\r\n            reaction.users.remove(user).catch(console.error);\r\n              embd.setColor(\"RANDOM\");\r\n              embd.setFooter(`Sayfa ${page+1} / ${arr.length+1}`);\r\n              embd.setDescription(arr[page] || \"Bulunamadi\")\r\n            msg.edit(embd)\r\n          break;\r\n\r\n        }\r\n      });\r\n\r\n})\r\n}\r\nexports.conf = {\r\n  enabled: true,\r\n  aliases: [],\r\n  permLevel: 0\r\n};\r\n\r\nexports.help = {\r\n  name: \"emoji\"\r\n};",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "9/22/2022"
+            },
+            "Slashlı öneri V13": {
+                "isim": "Slashlı öneri V13",
+                "id": "PsA63teoAU",
+                "desc": "Slash ile bot için öneri gönderme komutu",
+                "modules": [
+                    "Yok"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/40f70ce07ab28173879d26db7442aee2.png",
+                "main_code": "yok",
+                "komutlar_code": "const { Discord, MessageEmbed } = require(\"discord.js\");\r\nmodule.exports = {\r\n    slash: true, \r\n    name: ['öneri'],  \r\n    description: 'Bota eklenmesi gereken komut için öneri verirsiniz.', //komut açıklaması\r\n    option: [\r\n        {   \r\n            name: 'mesaj',  \r\n            description: 'Önerinizi Yazınız.',  \r\n            type: \"string\", \r\n            require: true \r\n        }\r\n    ],\r\n    async execute(client, interaction) { \r\n    interaction.reply(\"önerinizi başarı ile aldım, developer ekibi sizlerin önerisine uygun olarak botumuzu geliştiriyor\")\r\n    let oneri = new MessageEmbed()\r\n    .setAuthor(`${interaction.user.tag} adlı kişinin bir önerisi var`, client.user.avatarURL())\r\n    .setDescription(`` + interaction.options.getString(\"mesaj\"))\r\n    .setColor('GOLD')\r\n    .setTimestamp()\r\n    .setFooter({text:`${interaction.user.tag} Tarafından istendi`, iconURL:interaction.user.displayAvatarURL()}) \r\n    client.channels.cache.get(\"Kanal İd\").send({ embeds: [oneri]});\r\n\r\n\r\n    },\r\n}; ",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "9/25/2022"
+            },
+            "Banlist V12": {
+                "isim": "Banlist V12",
+                "id": "vSazDhalSX",
+                "desc": "Sunucudaki Banlı Kişileri Göst",
+                "modules": [
+                    "Yok"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/344b75958d412342c048020de1b8b01d.png",
+                "main_code": "Yok",
+                "komutlar_code": "const Discord = require(\"discord.js\");\r\nconst talkedRecently = new Set();\r\n\r\nexports.run = async(client, message, args) => {\r\n    \r\n    \r\nconst bans = new Map();\r\n            message.guild.fetchBans().then(g => {\r\n                bans[g.id] = g;\r\n                let banlist = (`${bans[g.id].map(ge => `\\n (${ge.user.tag}) (${ge.user.id})`).join('\\n')}`)\r\n                        try {     \r\n                let noembed = new Discord.MessageEmbed()\r\n  .setColor('#0070FF')\r\n                .setDescription(`Bu Sunucuda Yasaklı Kullanıcı Bulunmuyor.`)\r\n                .setAuthor(message.guild.name, message.guild.iconURL() ? message.guild.iconURL() : \"https://images-ext-2.discord.net/external/hHow2gpD0uyL8WnA8ynAHuPbzm_lE1lNAaxkLqDT0Fs/https/images-ext-1.discord.net/external/rBk_abKMsqAKoATjXbtyqKJt2bTXI_shMEemVpbNtFw/http/www.kalahandi.info/wp-content/uploads/2016/05/sorry-image-not-available.png\")\r\n               .setFooter('Bu komutu kullanan kullanıcı ' + message.author.tag, message.author.avatarURL())\r\n                if(banlist.length === 0) return message.channel.send(noembed)\r\n                const embed = new Discord.MessageEmbed()\r\n                    .setDescription(banlist)\r\n                    .setAuthor(message.guild.name, message.guild.iconURL() ? message.guild.iconURL() : \"https://images-ext-2.discord.net/external/hHow2gpD0uyL8WnA8ynAHuPbzm_lE1lNAaxkLqDT0Fs/https/images-ext-1.discord.net/external/rBk_abKMsqAKoATjXbtyqKJt2bTXI_shMEemVpbNtFw/http/www.kalahandi.info/wp-content/uploads/2016/05/sorry-image-not-available.png\")\r\n   .setFooter('Bu komutu kullanan kullanıcı ' + message.author.tag, message.author.avatarURL())\r\n                .setColor('#0070FF')\r\n                message.channel.send(embed)\r\n                      } catch (err) {\r\n        const embed = new Discord.MessageEmbed()\r\n            .addField(`Sunucuda Bulunan Yasaklılar`, '<:no:663378512417128449> Üzgünüm ama sunucunuzda fazla sayıda yasaklı kullanıcı bulunuyor Bu Yüzden gösteremiyorum. Discord buna izin vermiyor.')\r\n            .setColor('RED')\r\n          .setFooter('Bu komutu kullanan kullanıcı ' + message.author.tag, message.author.avatarURL())\r\n            .setTimestamp()\r\n        message.channel.send(embed)\r\n                      }\r\n\r\n        });\r\n    }\r\n                                           \r\nexports.conf = {\r\n  enabled: true,\r\n  guildOnly: true,\r\n  aliases: ['yasak-listesi'],\r\n  permLevel: 0\r\n};\r\n\r\nexports.help = {\r\n  name: 'banlist',\r\n  description: 'Sunucudaki Yasaklı Kullanıcıları Gösterir.',\r\n  usage: 'banlist',\r\n \r\n};",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "10/1/2022"
+            },
+            "Botu Sese Sokma V13": {
+                "isim": "Botu Sese Sokma V13",
+                "id": "BTSS146gnb",
+                "desc": "Botu Sese Sokma V13",
+                "modules": [
+                    "Yok"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/344b75958d412342c048020de1b8b01d.png",
+                "main_code": " client.on('ready', () => {  //PsychoPath\r\n  joinVoiceChannel({ \r\nchannelId: \"KANAL İD\", //PsychoPath\r\nguildId: \"SERVER İD\",    //PsychoPath\r\nadapterCreator: client.guilds.cache.get(\"854750196315062302\").voiceAdapterCreator\r\n    }); //PsychoPath\r\n}); //PsychoPath",
+                "komutlar_code": "Yok",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "10/1/2022"
+            },
+            "Seçenek menülü bot bilgi V13": {
+                "isim": "Seçenek menülü bot bilgi V13",
+                "id": "VsIt0eLJb3",
+                "desc": "Seçenek menülü bot bilgi V13",
+                "modules": [
+                    "moment",
+                    " moment-duration-format",
+                    " os"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/344b75958d412342c048020de1b8b01d.png",
+                "main_code": "Yok",
+                "komutlar_code": "const os = require(\"os\")\r\nconst {MessageEmbed, MessageActionRow, MessageButton, MessageSelectMenu} = require(\"discord.js\")\r\nconst moment = require(\"moment\")\r\nrequire('moment-duration-format')\r\nmodule.exports = {\r\n\r\n    name: 'bot-bilgi', //https://psychopath-techonology.ml/\r\n    description: 'Bot hakkında bilgiler verir.',\r\n    category: 'Info',\r\n    options: [],\r\n  \r\n    requiredPermissions: [],\r\n    requiredPermissionsMe: [],\r\n  \r\n    disabled: false,\r\n    developerOnly: false,\r\n    \r\n    run: async (client, interaction) => {\r\n   \r\n      const row = new MessageActionRow()\r\n      .addComponents(\r\n        new MessageSelectMenu()\r\n        .setCustomId(\"infoselectmenu\") \r\n        .setPlaceholder('Tıkla')\r\n        .setMinValues(1)\r\n        .setMaxValues(1)\r\n        .addOptions([\r\n          \r\n          {\r\n            label:\"Bot Hakkında Bilgiler\" ,\r\n            description:\"\",\r\n            value:\"psychopath\",\r\n            emoji:\"🤖\" \r\n          },\r\n          ])\r\n        )\r\n        await interaction.reply({content: \"Aşağıdan `Bot Hakkında Bilgiler` seçin.\", components: [row]})\r\n        client.on(\"interactionCreate\", async interaction => {\r\n          if (!interaction.isSelectMenu()) return;\r\n          if(interaction.customId === \"infoselectmenu\") {\r\n             \r\n   \r\n     if(interaction.values[0] === \"psychopath\") { //https://psychopath-techonology.ml/\r\n      const uptime = moment.duration(client.uptime).format(\"w [hafta], d [gün], h [saat], m [dakika], s [saniye]\")\r\n      const embed = new MessageEmbed()\r\n      .setTitle(\"Bot Bilgileri\")\r\n      .addFields(\r\n        {name: \"Sunucu Sayısı\", value: `${client.guilds.cache.size}`},\r\n        {name: \"Kullanıcı Sayısı\", value: `${client.users.cache.size}`},\r\n        {name: \"Kanal Sayısı\", value: `${client.channels.cache.size}`},\r\n        {name: \"Bit\", value: `${os.arch}`},\r\n        {name: \"Çalışma Süresi\", value: `${uptime}`},\r\n        {name: \"CPU\", value: `${os.cpus().map(i => `${i.model}`)[0]}`},\r\n        {name: \"Ram Kullanımı\", value: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(0)} / ${(os.totalmem() / 1024 / 1024).toFixed(0)} MB`},\r\n        {name: \"Sahip\", value: `[! PsychoPath#7992 | 840158550495723530](https://discord.com/users/840158550495723530)`},\r\n\r\n      )\r\n      .setColor(\"#00CCFF\")\r\n      await interaction.reply({embeds:[embed]})\r\n    } \r\n          } //https://psychopath-techonology.ml/\r\n        })\r\n    },\r\n  };",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "10/14/2022"
+            },
+            "Seçenek menülü sunucu bilgi V13": {
+                "isim": "Seçenek menülü sunucu bilgi V13",
+                "id": "qXEskAStsw",
+                "desc": "Seçenek menülü sunucu bilgi V13",
+                "modules": [
+                    "moment",
+                    " moment-duration-format",
+                    " os"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/344b75958d412342c048020de1b8b01d.png",
+                "main_code": "Yok",
+                "komutlar_code": "const os = require(\"os\")\r\nconst {MessageEmbed, MessageActionRow, MessageButton, MessageSelectMenu} = require(\"discord.js\")\r\nconst moment = require(\"moment\")\r\nrequire('moment-duration-format')\r\nmodule.exports = {\r\n\r\n    name: 'sunucu-bilgi', //https://psychopath-techonology.ml/\r\n    description: 'Sunucu  hakkında bilgiler verir.',\r\n    category: 'Info',\r\n    options: [],\r\n  \r\n    requiredPermissions: [],\r\n    requiredPermissionsMe: [],\r\n  \r\n    disabled: false,\r\n    developerOnly: false,\r\n    \r\n    run: async (client, interaction) => {\r\n   \r\n      const row = new MessageActionRow()\r\n      .addComponents(\r\n        new MessageSelectMenu()\r\n        .setCustomId(\"infoselectmenu\") \r\n        .setPlaceholder('Tıkla')\r\n        .setMinValues(1)\r\n        .setMaxValues(1)\r\n        .addOptions([\r\n\r\n          {\r\n            label:\"Sunucu Hakkında Bilgiler\",\r\n            description:\"\",\r\n            value:\"psychopath2\",\r\n            emoji:\"📊\"\r\n          },\r\n\r\n          ])//https://psychopath-techonology.ml/\r\n        )\r\n        await interaction.reply({content: \"Aşağıdan `Sunucu Hakkında Bilgiler` seçin.\", components: [row]})\r\n        client.on(\"interactionCreate\", async interaction => {\r\n          if (!interaction.isSelectMenu()) return;\r\n          if(interaction.customId === \"infoselectmenu\") {\r\n  \r\n   if(interaction.values[0] === \"psychopath2\") { //https://psychopath-techonology.ml/\r\n      const guild = interaction.guild\r\n      let verificationLevel = guild.verificationLevel\r\n      .replace(\"NONE\", \"Yok\")\r\n      .replace(\"LOW\", \"Düşük\")\r\n      .replace(\"MEDIUM\", \"Orta\")\r\n      .replace(\"HIGH\", \"Yüksek\")\r\n      .replace(\"VERY\", \"Çok\")\r\n      .replace(\"_\", \" \")\r\n      \r\n\r\n      const embed = new MessageEmbed()\r\n      .setTitle(\"Sunucu Bilgileri\")\r\n      .addFields(\r\n        {name: \"Sunucu Adı\", value: `${guild.name}`},\r\n        {name: \"Sunucu Açıklaması\", value: `${guild.description || \"Açıklama Yok\"}`},\r\n        {name: \"Sunucu Sahibi\", value: `<@${guild.ownerId}>`},\r\n        {name: \"Üyeler\", value: `Toplam: ${guild.memberCount}\\n İnsanlar: ${guild.members.cache.filter(member => !member.user.bot).size}\\nBotlar: ${guild.members.cache.filter(member => member.user.bot).size}`},\r\n        {name: \"Roller\", value: `${guild.roles.cache.size || \"Rol Yok\"}`},\r\n        {name: \"Doğrulama Seviyesi\", value: `${verificationLevel}`},//https://psychopath-techonology.ml/\r\n        {name: \"Takviye Seviyesi\", value: `${guild.premiumTier.replace(\"NONE\", \"Yok\")}`},\r\n        {name: \"Toplam Takviyeler\", value: `${guild.premiumSubscriptionCount}`},\r\n        {name: \"Sunucu Oluşturulma Tarihi\", value: `<t:${Math.floor(guild.createdTimestamp / 1000)}:f>`},\r\n        )\r\n        .setThumbnail(interaction.guild.iconURL({dynamic:true}))\r\n      .setColor(\"#00CCFF\")\r\n      await interaction.reply({embeds:[embed]})\r\n    \r\n    } \r\n          } //https://psychopath-techonology.ml/\r\n        })\r\n    },\r\n  };",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "10/14/2022"
+            },
+            "v13 oylama": {
+                "isim": "v13 oylama",
+                "id": "sYSPm6Siu7",
+                "desc": "v13 oylama",
+                "modules": [
+                    "Yok"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/344b75958d412342c048020de1b8b01d.png",
+                "main_code": "client.on(\"messageCreate\", async message => {\r\nif(message.guild.id === \"SERVER İD\"){\r\nif(message.channel.id === \"KANAL İD \"){\r\nmessage.react(\"✅\")\r\nmessage.react(\"❌\") \r\n}\r\n}\r\n})",
+                "komutlar_code": "yok",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "10/14/2022"
+            },
+            "Botu Sese sokma  v13": {
+                "isim": "Botu Sese sokma  v13",
+                "id": "P1Wi8VfTsu",
+                "desc": "Botu Sese sokma  v13",
+                "modules": [
+                    "@discordjs/voice"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/344b75958d412342c048020de1b8b01d.png",
+                "main_code": " \r\n\r\nconst { joinVoiceChannel } = require('@discordjs/voice');\r\n\r\n\r\n\r\n\r\n\r\nclient.on('ready', () => {  //PsychoPath\r\n  joinVoiceChannel({ \r\nchannelId: \"ses kanalı id\", //PsychoPath\r\nguildId: \"server id\",    //PsychoPath\r\nadapterCreator: client.guilds.cache.get(\"server id\").voiceAdapterCreator\r\n    }); //PsychoPath\r\n}); //PsychoPath\r\n",
+                "komutlar_code": "yok",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "10/14/2022"
+            },
+            "Bot Yanıt V13": {
+                "isim": "Bot Yanıt V13",
+                "id": "RCfydvD3sd",
+                "desc": "Bot Yanıt V13",
+                "modules": [
+                    "Yok"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/344b75958d412342c048020de1b8b01d.png",
+                "main_code": "client.on('messageCreate', (psychopath) => {\r\nif(psychopath.content == \"Mesajınız\")psychopath.reply(\"Botun yanıtı\")\r\n})",
+                "komutlar_code": "Yok",
+                "kod_rank": "normal",
+                "k_adi": "! PsychoPath",
+                "date": "10/15/2022"
+            }
+        }
+    }
+]

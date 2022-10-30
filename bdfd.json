@@ -1,0 +1,48 @@
+[
+    {
+        "kodlar": {
+            "30-komutlu-alt yapı": {
+                "isim": "30-komutlu-alt yapı",
+                "id": "PfkhxaD89l",
+                "desc": "Yok",
+                "modules": [
+                    "Bdfd"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/893771457971236885/153d985b8b800162f3639c614f6c18b3.png",
+                "main_code": "0lZaGDtkmW6vBNYUiAOicILR3",
+                "komutlar_code": "0lZaGDtkmW6vBNYUiAOicILR3",
+                "kod_rank": "bdfd",
+                "k_adi": "๕ۣۜZΞUS™",
+                "date": "10/22/2022"
+            },
+            "39-komutlu bi botur ": {
+                "isim": "39-komutlu bi botur ",
+                "id": "1bfwMa7iAI",
+                "desc": "Bdfd ",
+                "modules": [
+                    "Bdfd"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/893771457971236885/1b771be540a8338fe991d1084b8e5957.png",
+                "main_code": "> GYtnXozWCMYROr5Y8SuTGrrxu",
+                "komutlar_code": "Yok",
+                "kod_rank": "bdfd",
+                "k_adi": "・𝘞𝘦𝘥𝘥𝘪𝘯・",
+                "date": "10/23/2022"
+            },
+            "bdfd": {
+                "isim": "Rol verme",
+                "id": "rcvvVBOWD8",
+                "desc": "Rol verme",
+                "modules": [
+                    "bdfd"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/948970965939912725/ef3caeb0b97dd1aa9f3590e83f1980f9.png",
+                "main_code": "$nomention\r\n$onlyAdmin[üzgünüm dostum yetkin yok] \r\n\r\n$title[Rol Verme]\r\n\r\n$giveRole[$mentioned[>1];$mentionedRoles[1]]\r\n\r\n$argsCheck[>1;`Rol vermem için birisini etiketlemen lazım.`]\r\n\r\n$onlyPerms[manageroles;Bu komutu kullanabilmen için `Rolleri Yönet` yetkisine ihtiyacın var.]\r\n\r\n$suppressErrors[❌ `Seçtiğin rol benim rolümün üstünde kaldığı için rolü veremiyorum.`]\r\n\r\n\r\n$description[\r\n`Rolü Veren Yetkili:` <@$authorID>\r\n\r\n`Rol Verilen Kişi:` <@$mentioned[1]>\r\n\r\n`Verilen Rol:` <@&$mentionedRoles[<]>]\r\n\r\n$color[ffffff]",
+                "komutlar_code": "yok",
+                "kod_rank": "bdfd",
+                "k_adi": "TersOyunda",
+                "date": "10/23/2022"
+            }
+        }
+    }
+]

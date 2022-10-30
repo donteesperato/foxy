@@ -99,6 +99,20 @@
                 "kod_rank": "hazir",
                 "k_adi": "Pyhton",
                 "date": "10/30/2022"
+            },
+            "V13 Ayarlamalı Ticket": {
+                "isim": "V13 Ayarlamalı Ticket",
+                "id": "ga1EkGRYr1",
+                "desc": "V13 Ayarlamalı Ticket",
+                "modules": [
+                    "discord.js"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/743456240037789726/a_700363050a7752c474db6e5a599ec2ab.png",
+                "main_code": "https://github.com/MortalHibas/v13ticket",
+                "komutlar_code": "https://github.com/MortalHibas/v13ticket",
+                "kod_rank": "hazir",
+                "k_adi": "Pyhton",
+                "date": "10/30/2022"
             }
         }
     }

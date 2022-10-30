@@ -70,6 +70,20 @@
                 "kod_rank": "hazir",
                 "k_adi": "๕ۣۜZΞUS™",
                 "date": "10/22/2022"
+            },
+            "Siteli Uptime": {
+                "isim": "Siteli Uptime",
+                "id": "h8ikwShrej",
+                "desc": "Siteli Uptime",
+                "modules": [
+                    "Yok"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/344b75958d412342c048020de1b8b01d.png",
+                "main_code": "MonsterBotTechonolgy/psycho-siteli-uptime",
+                "komutlar_code": "MonsterBotTechonolgy/psycho-siteli-uptime",
+                "kod_rank": "hazir",
+                "k_adi": "PsychoPath",
+                "date": "10/30/2022"
             }
         }
     }

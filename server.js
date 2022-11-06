@@ -624,14 +624,14 @@ app.get("/beta", (req, res) => {
 
 
 
-
-
-
 app.get("/ekip", (req, res) => {
   res.render("ekip", {
     user: req.user
   });
 });
+
+
+
 
 
 app.get("/videolar", (req, res) => {

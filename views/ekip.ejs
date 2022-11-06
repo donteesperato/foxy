@@ -1,4 +1,4 @@
-<%- include('parts/head', {bot, user, path}) %>
+<%- include('main', {bot, user, path}) %>
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
 <style>
@@ -60,7 +60,7 @@
 }
 </style>
 
-<% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.websitedeveloper)).map(a => {%>
+<% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.websitedeveloper)).map(a => { </%>
 <div class="vcodes_column">
 <div class="vcodes_teamcard border-animation" onclick="location.href='/user/<%=a.id%>'">
 <div class="user">
@@ -92,3 +92,125 @@
 <% } %>
 <% }) %>
   
+  
+  
+  
+<% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.moderator)).map(a => {%>
+<% if(!bot.guilds.cache.get(config.serverID).members.cache.get(a.id).roles.cache.get(roles.manager)) {%>
+<div class="vcodes_column">
+<div style="border-color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.moderator).hexColor%>;" class="vcodes_teamcard" onclick="location.href='/user/<%=a.id%>'">
+<div class="user">
+<h1 translate="no"><%=a.user.username%></h1>
+<h2 style="color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.moderator).hexColor%>"><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.moderator).name%></h2>
+</div>
+<div class="avatar">
+<img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
+</div>
+</div>
+</div>
+<% } %>
+<% }) %>
+  
+  
+  
+  
+<% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.partnerstaff)).map(a => {%>
+<% if(!bot.guilds.cache.get(config.serverID).members.cache.get(a.id).roles.cache.get(roles.moderator)) {%>
+<% if(!bot.guilds.cache.get(config.serverID).members.cache.get(a.id).roles.cache.get(roles.manager)) {%>
+<div class="vcodes_column">
+<div style="border-color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.partnerstaff).hexColor%>;" class="vcodes_teamcard" onclick="location.href='/user/<%=a.id%>'">
+<div class="user">
+<h1 translate="no"><%=a.user.username%></h1>
+<h2 style="color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.partnerstaff).hexColor%>"><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.partnerstaff).name%></h2>
+</div>
+<div class="avatar">
+<img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
+</div>
+</div>
+</div>
+<% } %>
+<% } %>
+<% }) %>
+
+<% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.sponsor)).map(a => {%>
+                    <div class="vcodes_column">
+    <div style="border-color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.sponsor).hexColor%>;" class="vcodes_teamcard" onclick="location.href='/user/<%=a.id%>'">
+    <div class="user">
+    <h1 translate="no"><%=a.user.username%></h1>
+    <h2 style="color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.sponsor).hexColor%>"><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.sponsor).name%></h2>
+    </div>
+    <div class="avatar">
+    <img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
+    </div>
+    </div>
+    </div>
+    <% }) %>
+</div>
+</div>
+</div>
+</div>
+<br><br><br>
+<div class="container">
+    <h3 style="color: #fff;">
+        <i class="fad fa-users"></i> Supporters
+        </h3>
+        <div class="vcodes_divider"></div>
+        <br>
+    <div class="row">
+    <div class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-3">
+
+        <% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.sponsor)).map(a => {%>
+        <div class="vcodes_column">
+        <div style="border-color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.sponsor).hexColor%>;" class="vcodes_teamcard" onclick="location.href='/user/<%=a.id%>'">
+        <div class="user">
+        <h1 translate="no"><%=a.user.username%></h1>
+        <h2 style="color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.sponsor).hexColor%>"><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.sponsor).name%></h2>
+        </div>
+        <div class="avatar">
+        <img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
+        </div>
+        </div>
+        </div>
+        <% }) %>
+        <% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.booster)).map(a => {%>
+          <% if(!bot.guilds.cache.get(config.serverID).members.cache.get(a.id).roles.cache.get(roles.sponsor)) {%>
+
+          <div class="vcodes_column">
+            <div style="border-color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.booster).hexColor%>;" class="vcodes_teamcard" onclick="location.href='/user/<%=a.id%>'">
+            <div class="user">
+            <h1 translate="no"><%=a.user.username%></h1>
+            <h2 style="color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.booster).hexColor%>"><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.booster).name%></h2>
+            </div>
+            <div class="avatar">
+            <img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
+            </div>
+            </div>
+            </div>
+            <% } %>
+            <% }) %>
+            <% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.supporter)).map(a => {%>
+              <% if(!bot.guilds.cache.get(config.serverID).members.cache.get(a.id).roles.cache.get(roles.booster)) {%>
+                <% if(!bot.guilds.cache.get(config.serverID).members.cache.get(a.id).roles.cache.get(roles.sponsor)) {%>
+              <div class="vcodes_column">
+              <div style="border-color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.supporter).hexColor%>;" class="vcodes_teamcard" onclick="location.href='/user/<%=a.id%>'">
+              <div class="user">
+              <h1 translate="no"><%=a.user.username%></h1>
+              <h2 style="color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.supporter).hexColor%>"><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.supporter).name%></h2>
+              </div>
+              <div class="avatar">
+              <img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
+              </div>
+              </div>
+              </div>
+              <% } %>
+              <% } %>
+              <% }) %>
+    </div>
+    </div>
+    </div>
+    </div>
+<br><br><br>
+<br><br><br>
+<br><br><br><br>
+<%- include('parts/foot') %>

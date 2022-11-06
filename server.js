@@ -620,21 +620,6 @@ app.get("/beta", (req, res) => {
 
 
 
-const roles = require("./roles.json")
-
-  const renderTemplate = (res, req, template, data = {}) => {
-    const baseData = {
-    bot: client,
-    path: req.path,
-    user: req.isAuthenticated() ? req.user : null
-    };
-    res.render(path.resolve(`${template}${path.sep}${template}`), Object.assign(baseData, data));
-    };
-  
-
-    app.get("/ekip",  (req, res) => {
-        renderTemplate(res, req, "ekip.ejs", {req, roles});
-      });
 
 
 
@@ -642,11 +627,11 @@ const roles = require("./roles.json")
 
 
 
-
-
-
-
-
+app.get("/ekip", (req, res) => {
+  res.render("ekip", {
+    user: req.user
+  });
+});
 
 
 app.get("/videolar", (req, res) => {

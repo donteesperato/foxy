@@ -607,7 +607,11 @@ app.get("/z-birgol", (req, res) => {
 });
 
 
-
+app.get("/beta", (req, res) => {
+  res.render("z-zlauncher", {
+    user: req.user
+  });
+});
 //Ticketler//
 
 

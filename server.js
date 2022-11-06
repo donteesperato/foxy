@@ -615,6 +615,11 @@ app.get("/beta", (req, res) => {
 });
 //Ticketler//
 
+
+
+
+
+
 const roles = require("./roles.json")
 
   const renderTemplate = (res, req, template, data = {}) => {
@@ -623,12 +628,12 @@ const roles = require("./roles.json")
     path: req.path,
     user: req.isAuthenticated() ? req.user : null
     };
-    res.render(path.resolve(`${templateDir}${path.sep}${template}`), Object.assign(baseData, data));
+    res.render(path.resolve(`${template}${path.sep}${template}`), Object.assign(baseData, data));
     };
   
 
     app.get("/ekip",  (req, res) => {
-        renderTemplate(res, req, "ekip.js", {req, roles});
+        renderTemplate(res, req, "ekip.ejs", {req, roles});
       });
 
 
@@ -644,15 +649,6 @@ const roles = require("./roles.json")
 
 
 
-
-
-
-
-app.get("/ekip", (req, res) => {
-  res.render("ekip", {
-    user: req.user
-  });
-});
 app.get("/videolar", (req, res) => {
   res.render("videolar", {
     user: req.user

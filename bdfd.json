@@ -42,6 +42,20 @@
                 "kod_rank": "bdfd",
                 "k_adi": "TersOyunda",
                 "date": "10/23/2022"
+            },
+            "Kullancı-Bilgi": {
+                "isim": "Kullancı-Bilgi",
+                "id": "bVPpMNOmek",
+                "desc": "bdfd",
+                "modules": [
+                    "bdfd"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/948970965939912725/ef3caeb0b97dd1aa9f3590e83f1980f9.png",
+                "main_code": "$nomention\r\n$author[Kullanıcı Bilgi]\r\n$authorIcon[$authorAvatar]\r\n$description[\r\n👤 **| `Kullanıcı adı: $username[$mentioned[1]]# $discriminator[$mentioned[1]]`\r\n🆔 | `ID : $mentioned[1]`\r\n🤖 | `Botmu : $replaceText[$replaceText[$isBot[$mentioned[1]];true;Evet;-1];false;Hayır;-1]`\r\n🕒 | `Hesap oluşturulma Tarihi : $creationDate[$mentioned[1]]`\r\n🔧 | `En yüksek rol :` <@&$highestRole[$mentioned[1]]>\r\n🔧 | `En düşük rol : ` <@&$lowestRole[$mentioned[1]]>\r\n👑 | `Yönetici mi: $replaceText[$replaceText[$isAdmin[$mentioned[1]];false;Değil;-1];true;Evet;-1]`\r\n🔒 | `DM açık, kapalı : $replaceText[$replaceText[$isUserDMEnabled[$mentioned[1]];true;Açık;-1];false;Kapalı;-1]`\r\n🚧 | `Kanal sayısı : $channelCount`\r\n🖼 | `Profil fotoğrafı :`**\r\n$image[$userAvatar[$mentioned[1]]]]\r\n$color[ffff00]\r\n$footer[$username]\r\n$addTimestamp\r\n$footerIcon[$authorAvatar]\r\n$addReactions[✅]\r\n$onlyIf[$mentioned[1]!=;❎ Birini etiketle]\r\n$suppressErrors[❎ Birini etiketle]",
+                "komutlar_code": "yok",
+                "kod_rank": "bdfd",
+                "k_adi": "TersOyunda",
+                "date": "11/6/2022"
             }
         }
     }

@@ -12,6 +12,7 @@
     "bookman": "^1.6.4",
     "cookie-parser": "^1.4.5",
     "discord.js": "^12.2.0",
+    "ejs": "^3.1.8",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.6",
     "express-session": "^1.17.1",

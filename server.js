@@ -14,6 +14,7 @@ const session = require("express-session");
 const client = new Discord.Client();
 const randomString = require("random-string");
 const db = (global.db = {});
+  const ejs = require("ejs");
 
 let ranks = ["normal", "altin", "elmas", "hazir", "topluluk", "api","bdfd"];
 for (let rank in ranks) {
@@ -614,10 +615,21 @@ app.get("/beta", (req, res) => {
 });
 //Ticketler//
 
+const roles = require("./roles.json")
 
+  const renderTemplate = (res, req, template, data = {}) => {
+    const baseData = {
+    bot: client,
+    path: req.path,
+    user: req.isAuthenticated() ? req.user : null
+    };
+    res.render(path.resolve(`${templateDir}${path.sep}${template}`), Object.assign(baseData, data));
+    };
+  
 
-
-
+    app.get("/ekip",  (req, res) => {
+        renderTemplate(res, req, "ekip.js", {req, roles});
+      });
 
 
 

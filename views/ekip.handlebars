@@ -1,216 +1,132 @@
-<%- include('main', {bot, user, path}) %>
-<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
-<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
-<style>
-  h1 {
-    color: #fFf;
-  }
-  .background {
-    position: relative;
-}
+<main class="text-light">
+    
+<title>PsychoPath Techonology | Ekip</title>
+    <br>
+    <div class="container">
+        <h1 style="margin-right: 30px;text-align:center;font-size: 2.2em;text-decoration: none; font-weight: bold; color: white;">
+            Üst Yetkililer</h1>
+        <hr style="background-color: white;height: 2px; ">
+        <div class="row" style="margin-left: 20px;">
+            <div class="col">
 
-.layer {
-    background-color: rgba(248, 247, 216, 0.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-</style>
-<br><br><br><br><br><br><br>
-<div class="container">
-    <h3 style="color: #fff;">
-        <i class="fad fa-user-crown"></i> Authorized Users
-        </h3>
-        <div class="vcodes_divider"></div>
-        <br>
-<div class="row">
-<div class="container-fluid">
-<div class="row row-cols-1 row-cols-md-3">
-  
+            
+                <div class="profile" style="background: linear-gradient(-35deg, rgba(114, 137, 218, 0.5) 20%, rgb(114, 137, 218, 0.5) 130%); box-shadow: transparent 0px 2px 52px 0px;">
+                    <div class="profile-details">
+                        <h1 title="! PsychoPath">! PsychoPath </h1>
+                        <h2>Kurucu</h2>
+                    </div>
+                    <div class="profile-avatar"><img src="https://probot.media/store/547.png">
+                    </div>
+                </div>
+                             <div class="profile" style="background: linear-gradient(-35deg, rgba(114, 137, 218, 0.5) 20%, rgb(114, 137, 218, 0.5) 130%); box-shadow: transparent 0px 2px 52px 0px;">
+                    <div class="profile-details">
+                        <h1 title="ByK1ttY">ByKittY</h1>
+                        <h2>Kurucu</h2>
+                    </div>
+                    <div class="profile-avatar"><img src="https://cdn.discordapp.com/avatars/971370440285122560/ca525d2800e75b339d258143cbf539e8.png?size=1024">
+                    </div>
+                </div>
 
-<style>
-@-webkit-keyframes rainbow {
-  0% {border-color: hsl(0, 100%, 50%);}
-  14% {border-color: hsl(30,100%,50%);}
-  28% {border-color: hsl(60,100%,50%);}
-  42% {border-color: hsl(120,100%,50%);}
-  56% {border-color:  hsl(240,100%,50%);}
-  70% {border-color: hsl(280,100%,50%);}
-  84% {border-color: hsl(320,100%,50%);}
-  100% {border-color: hsl(255, 100%, 50%);}
-}
-@-webkit-keyframes rainbow-text {
-  0% {color: hsl(0, 100%, 50%);}
-  14% {color: hsl(30,100%,50%);}
-  28% {color: hsl(60,100%,50%);}
-  42% {color: hsl(120,100%,50%);}
-  56% {color:  hsl(240,100%,50%);}
-  70% {color: hsl(280,100%,50%);}
-  84% {color: hsl(320,100%,50%);}
-  100% {color: hsl(255, 100%, 50%);}
-}
-.text-animation {
--webkit-animation: rainbow-text 5s infinite alternate; 
-}
+                                           <div class="profile" style="background: linear-gradient(-35deg, rgba(114, 137, 218, 0.5) 20%, rgb(114, 137, 218, 0.5) 130%); box-shadow: transparent 0px 2px 52px 0px;">
+                    <div class="profile-details">
+                        <h1 title="AntiMatter">AntiMatter</h1>
+                        <h2>Yönetim</h2>
+                    </div>
+                    <div class="profile-avatar"><img src="https://cdn.discordapp.com/avatars/957676360556503090/eae53b68985c3c90004714cfe5e12093.png?size=1024">
+                    </div>
+                </div>
 
-.border-animation {
--webkit-animation: rainbow 5s infinite alternate; 
-}
-</style>
-
-<% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.websitedeveloper)).map(a => { </%>
-<div class="vcodes_column">
-<div class="vcodes_teamcard border-animation" onclick="location.href='/user/<%=a.id%>'">
-<div class="user">
-<h1 translate="no"><%=a.user.username%></h1>
-<h2 translate="no" class="text-animation" ><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.websitedeveloper).name%></h2>
-</div>
-<div class="avatar">
-<img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
-</div>
-</div>
-</div>
-<% }) %>
-
-
-
-<% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.manager)).map(a => {%>
-<% if(!bot.guilds.cache.get(config.serverID).members.cache.get(a.id).roles.cache.get(roles.websitedeveloper)) {%>
-<div class="vcodes_column">
-<div style="border-color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.manager).hexColor%>;" class="vcodes_teamcard" onclick="location.href='/user/<%=a.id%>'">
-<div class="user">
-<h1 translate="no"><%=a.user.username%></h1>
-<h2 style="color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.manager).hexColor%>"><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.manager).name%></h2>
-</div>
-<div class="avatar">
-<img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
-</div>
-</div>
-</div>
-<% } %>
-<% }) %>
-  
-  
-  
-  
-<% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.moderator)).map(a => {%>
-<% if(!bot.guilds.cache.get(config.serverID).members.cache.get(a.id).roles.cache.get(roles.manager)) {%>
-<div class="vcodes_column">
-<div style="border-color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.moderator).hexColor%>;" class="vcodes_teamcard" onclick="location.href='/user/<%=a.id%>'">
-<div class="user">
-<h1 translate="no"><%=a.user.username%></h1>
-<h2 style="color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.moderator).hexColor%>"><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.moderator).name%></h2>
-</div>
-<div class="avatar">
-<img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
-</div>
-</div>
-</div>
-<% } %>
-<% }) %>
-  
-  
-  
-  
-<% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.partnerstaff)).map(a => {%>
-<% if(!bot.guilds.cache.get(config.serverID).members.cache.get(a.id).roles.cache.get(roles.moderator)) {%>
-<% if(!bot.guilds.cache.get(config.serverID).members.cache.get(a.id).roles.cache.get(roles.manager)) {%>
-<div class="vcodes_column">
-<div style="border-color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.partnerstaff).hexColor%>;" class="vcodes_teamcard" onclick="location.href='/user/<%=a.id%>'">
-<div class="user">
-<h1 translate="no"><%=a.user.username%></h1>
-<h2 style="color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.partnerstaff).hexColor%>"><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.partnerstaff).name%></h2>
-</div>
-<div class="avatar">
-<img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
-</div>
-</div>
-</div>
-<% } %>
-<% } %>
-<% }) %>
-
-<% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.sponsor)).map(a => {%>
-                    <div class="vcodes_column">
-    <div style="border-color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.sponsor).hexColor%>;" class="vcodes_teamcard" onclick="location.href='/user/<%=a.id%>'">
-    <div class="user">
-    <h1 translate="no"><%=a.user.username%></h1>
-    <h2 style="color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.sponsor).hexColor%>"><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.sponsor).name%></h2>
-    </div>
-    <div class="avatar">
-    <img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
-    </div>
-    </div>
-    </div>
-    <% }) %>
-</div>
-</div>
-</div>
-</div>
-<br><br><br>
-<div class="container">
-    <h3 style="color: #fff;">
-        <i class="fad fa-users"></i> Supporters
-        </h3>
-        <div class="vcodes_divider"></div>
-        <br>
-    <div class="row">
-    <div class="container-fluid">
-    <div class="row row-cols-1 row-cols-md-3">
-
-        <% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.sponsor)).map(a => {%>
-        <div class="vcodes_column">
-        <div style="border-color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.sponsor).hexColor%>;" class="vcodes_teamcard" onclick="location.href='/user/<%=a.id%>'">
-        <div class="user">
-        <h1 translate="no"><%=a.user.username%></h1>
-        <h2 style="color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.sponsor).hexColor%>"><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.sponsor).name%></h2>
-        </div>
-        <div class="avatar">
-        <img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
-        </div>
-        </div>
-        </div>
-        <% }) %>
-        <% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.booster)).map(a => {%>
-          <% if(!bot.guilds.cache.get(config.serverID).members.cache.get(a.id).roles.cache.get(roles.sponsor)) {%>
-
-          <div class="vcodes_column">
-            <div style="border-color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.booster).hexColor%>;" class="vcodes_teamcard" onclick="location.href='/user/<%=a.id%>'">
-            <div class="user">
-            <h1 translate="no"><%=a.user.username%></h1>
-            <h2 style="color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.booster).hexColor%>"><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.booster).name%></h2>
+   
             </div>
-            <div class="avatar">
-            <img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
+        </div>
+    </div>
+    <br>
+  
+
+  
+  
+  
+    <div class="container">
+        <h1 style="margin-right: 30px;text-align:center;font-size: 2.2em;text-decoration: none; font-weight: bold; color: white;">
+            Kod Paylaşımcı</h1>
+        <hr style="background-color: white;height: 2px; ">
+        <div class="row" style="margin-left: 3px;">
+            <div class="col">
+  
+  
+  
+                                          <div class="profile" style="background: linear-gradient(-35deg, rgba(114, 137, 218, 0.5) 20%, rgb(114, 137, 218, 0.5) 130%); box-shadow: transparent 0px 2px 52px 0px;">
+                    <div class="profile-details">
+                        <h1 title="Toprak">Toprak</h1>
+                        <h2>Kod Paylaşımcı</h2>
+                    </div>
+                    <div    class="profile-avatar"><img src="https://cdn.discordapp.com/avatars/743456240037789726/a_0ecb4b9d480596740491b2953cd03f0d.gif?size=2048"  >
+                    </div>
+                </div>   
+              
+                                          <div class="profile" style="background: linear-gradient(-35deg, rgba(114, 137, 218, 0.5) 20%, rgb(114, 137, 218, 0.5) 130%); box-shadow: transparent 0px 2px 52px 0px;">
+                    <div class="profile-details">
+                        <h1 title="Ahmet">Ahmet</h1>
+                        <h2>Kod Paylaşımcı</h2>
+                    </div>
+                    <div    class="profile-avatar"><img src="https://cdn.discordapp.com/avatars/948970965939912725/ef3caeb0b97dd1aa9f3590e83f1980f9.png?size=1024"  >
+                    </div>
+                </div>   
+              
+
             </div>
+        </div>
+    </div>
+    <br>
+  
+    
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="container">
+        <h1 style="margin-right: 30px;text-align:center;font-size: 2.2em;text-decoration: none; font-weight: bold; color: white;">
+            Destekçiler</h1>
+        <hr style="background-color: white;height: 2px; ">
+        <div class="row" style="margin-left: 3px;">
+            <div class="col">
+                <div class="profile" style="-moz-user-select: none;-ms-user-select: none;user-select: none;background: linear-gradient(-35deg, rgba(218, 127, 255, 0.5) 20%, rgb(242, 101, 255) 130%); box-shadow: transparent 0px 2px 52px 0px;">
+                    <div class="profile-details">
+                        <h1 title="Boş">Boş</h1>
+                        <h2>Booster</h2>
+                    </div>
+                    <div class="profile-avatar"><img src="https://i1.wp.com/erisly.com/assets/img/premium/boost.cb45e94.png">
+                    </div>
+                </div>
+               
+                <div class="profile" style="-moz-user-select: none;-ms-user-select: none;user-select: none;background: linear-gradient(-35deg, rgba(218, 127, 255, 0.5) 20%, rgb(242, 101, 255) 130%); box-shadow: transparent 0px 2px 52px 0px;">
+                    <div class="profile-details">
+                        <h1 title="Boş">Boş</h1>
+                        <h2>Booster</h2>
+                    </div>
+                    <div class="profile-avatar"><img src="https://i1.wp.com/erisly.com/assets/img/premium/boost.cb45e94.png">
+                    </div>
+                </div>
             </div>
-            </div>
-            <% } %>
-            <% }) %>
-            <% bot.guilds.cache.get(config.serverID).members.cache.filter(a => a.roles.cache.has(roles.supporter)).map(a => {%>
-              <% if(!bot.guilds.cache.get(config.serverID).members.cache.get(a.id).roles.cache.get(roles.booster)) {%>
-                <% if(!bot.guilds.cache.get(config.serverID).members.cache.get(a.id).roles.cache.get(roles.sponsor)) {%>
-              <div class="vcodes_column">
-              <div style="border-color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.supporter).hexColor%>;" class="vcodes_teamcard" onclick="location.href='/user/<%=a.id%>'">
-              <div class="user">
-              <h1 translate="no"><%=a.user.username%></h1>
-              <h2 style="color: <%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.supporter).hexColor%>"><%=bot.guilds.cache.get(config.serverID).roles.cache.get(roles.supporter).name%></h2>
-              </div>
-              <div class="avatar">
-              <img draggable="false" class="pulse-avatar-<%=bot.users.cache.get(a.id).presence.status%>" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
-              </div>
-              </div>
-              </div>
-              <% } %>
-              <% } %>
-              <% }) %>
+        </div>
     </div>
-    </div>
-    </div>
-    </div>
-<br><br><br>
-<br><br><br>
-<br><br><br><br>
-<%- include('parts/foot') %>
+
+</main>
+<!--Start of Tawk.to Script-->
+<script src="//code.tidio.co/wnbubljansidf3tl7zkc2kxgjc8cw6g9.js" async></script>
+
+<!--End of Tawk.to Script-->

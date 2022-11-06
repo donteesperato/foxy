@@ -24,3 +24,38 @@
   </h1>
 </noscript>
 
+   
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<iframe src="https://www.youtube.com/watch?v=fYUA2kiNOGE" loop id="x" allow="autoplay" style="display:none">
+</iframe> 
+<audio id="y">
+
+  <source src="https://www.youtube.com/watch?v=fYUA2kiNOGE"  type="audio/mpeg">
+
+</audio>
+
+<button onclick="play()">Play Müzik</button>
+
+<button onclick="pause()">Pause Müzik</button>  
+  
+<script>
+ function play() {
+       y.play();
+    }
+
+    function pause() {
+
+      x.setAttribute("src", "");
+       y.pause();
+    }  
+</script>
+
+</body>
+
+</html>

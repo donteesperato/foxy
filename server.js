@@ -61,7 +61,8 @@ app.engine(
     helpers: handlebarshelpers
   })
 );
-app.set("views", path.join(__dirname, "views"));
+
+app.set("views",path.join(__dirname, "views"));
 app.set("view engine", "handlebars");
 app.use(express.static(__dirname + "/public"));
 passport.serializeUser((user, done) => {
@@ -613,14 +614,25 @@ app.get("/psychogame-beta", (req, res) => {
     user: req.user
   });
 });
+
+
+
 //Ticketler//
 
 
 
 
 
-
-
+//GAME//
+app.engine(
+  "handlebars",
+  handlebars({
+    defaultLayout: "cow",
+    layoutsDir: `${__dirname}/game`,
+    helpers: handlebarshelpers
+  })
+);
+//GAME//
 
 
 

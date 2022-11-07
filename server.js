@@ -616,7 +616,11 @@ app.get("/psychogame-beta", (req, res) => {
   });
 });
 
-
+app.get("/game-atesu", (req, res) => {
+  res.render("game-atesu", {
+    user: req.user
+  });
+});
 
 //Ticketler//
 

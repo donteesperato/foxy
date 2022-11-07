@@ -624,7 +624,7 @@ app.get("/psychogame-beta", (req, res) => {
 
 
 //GAME//
-app.engine(
+app.get(
   "handlebars",
   handlebars({
     defaultLayout: "cow",

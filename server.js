@@ -627,20 +627,13 @@ app.get("/psychogame-beta", (req, res) => {
 //GAME//
 
 
-app.set("views",path.join(__dirname, "views"));
-app.set("view engine", "handlebars");
-app.use(express.static(__dirname + "/public"));
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
-passport.deserializeUser((obj, done) => {
-  done(null, obj);
-});
-
-
-
 app.get("/cow", (req, res) => {
-  res.render("cow", {
+  res.render("game-cow", {
+    user: req.user
+  });
+});
+app.get("/eww3", (req, res) => {
+  res.render("game-eww3", {
     user: req.user
   });
 });

@@ -616,13 +616,13 @@ app.get("/psychogame-beta", (req, res) => {
   });
 });
 
-app.get("/game-chess", (req, res) => {
-  res.render("chess", {
+app.get("/chess", (req, res) => {
+  res.render("game-bowling", {
     user: req.user
   });
 });
-app.get("/game-bowling", (req, res) => {
-  res.render("bowling", {
+app.get("/bowling", (req, res) => {
+  res.render("game-bowling", {
     user: req.user
   });
 });

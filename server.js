@@ -617,7 +617,7 @@ app.get("/psychogame-beta", (req, res) => {
 });
 
 app.get("/chess", (req, res) => {
-  res.render("game-bowling", {
+  res.render("game-chess", {
     user: req.user
   });
 });

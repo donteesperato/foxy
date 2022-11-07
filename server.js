@@ -71,6 +71,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((obj, done) => {
   done(null, obj);
 });
+
 const scopes = ["identify", "guilds"];
 passport.use(
   new Strategy(
@@ -624,14 +625,25 @@ app.get("/psychogame-beta", (req, res) => {
 
 
 //GAME//
-app.get(
-  "handlebars",
-  handlebars({
-    defaultLayout: "cow",
-    layoutsDir: `${__dirname}/game`,
-    helpers: handlebarshelpers
-  })
-);
+
+
+app.set("views",path.join(__dirname, "views"));
+app.set("view engine", "handlebars");
+app.use(express.static(__dirname + "/public"));
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
+
+
+
+app.get("/cow", (req, res) => {
+  res.render("cow", {
+    user: req.user
+  });
+});
 //GAME//
 
 

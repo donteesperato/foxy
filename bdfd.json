@@ -56,6 +56,20 @@
                 "kod_rank": "bdfd",
                 "k_adi": "TersOyunda",
                 "date": "11/6/2022"
+            },
+            "Mesaj sil": {
+                "isim": "Mesaj sil",
+                "id": "0hWU0N5mtq",
+                "desc": "Mesaj sil",
+                "modules": [
+                    "Yok"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/344b75958d412342c048020de1b8b01d.png",
+                "main_code": "Yok",
+                "komutlar_code": "$nomention\r\n$clear[$message]\r\n$title[✅ $message Adet Mesaj Silindi✅]\r\n$description[$message Adet Mesaj silindi]\r\n\r\n$footer[Komutu kullanan kişi: $username]\r\n$addTimestamp\r\n\r\n$color[$random[0;999999]]",
+                "kod_rank": "bdfd",
+                "k_adi": "PsychoPath",
+                "date": "11/16/2022"
             }
         }
     }

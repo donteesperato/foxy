@@ -14,7 +14,20 @@
                 "kod_rank": "altin",
                 "k_adi": "! PsychoPath",
                 "date": "7/25/2022"
-            
+            },
+            "V13 Slashlı Timeout": {
+                "isim": "V13 Slashlı Timeout",
+                "id": "Gwhe3A6QzZ",
+                "desc": "V13 Slashlı Timeout",
+                "modules": [
+                    "ms"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/840158550495723530/344b75958d412342c048020de1b8b01d.png",
+                "main_code": "Yok",
+                "komutlar_code": "const ms = require(\"ms\")\r\n\r\nmodule.exports = {\r\n  slash: true,\r\n  enable: true,\r\n  name: \"timeout\",\r\n  description: 'Üyeye timeout atar/kaldırır',\r\n  options: [\r\n      {\r\n          name: \"member\", //option ismi\r\n          description: \"timeout işlemi uygulanacak üye\", //option açıklaması\r\n          type: 6, //option type (Type türleri için: https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type)\r\n          required: true //optionu doldurmak zorunlu ise true değilse false girin (false yerine bu satırı silebilirsinizde.)\r\n      },\r\n      { //option 2\r\n          name: \"time\", //option ismi\r\n          description: \"Timeout süresi(Örnek- 1m,1h,1d,1w)\", //option açıklaması\r\n          type: 3, //option type (Type türleri için: https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type)\r\n          required: false //optionu doldurmak zorunlu ise true değilse false girin (false yerine bu satırı silebilirsinizde.)\r\n      },\r\n          { //option 3\r\n          name: \"sebep\", //option ismi\r\n          description: \"Timeout sebebi\", //option açıklaması\r\n          type: 3, //option type (Type türleri için: https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type)\r\n          required: false //optionu doldurmak zorunlu ise true değilse false girin (false yerine bu satırı silebilirsinizde.)\r\n      }\r\n    \r\n  ],\r\n run: async (client, interaction) => {  //her slash commandda burası aynı olmak zorunda\r\n  const member = interaction.options.getMember(\"member\");\r\n  const time = interaction.options.getString(\"time\");\r\n  const sebep = interaction.options.getString(\"sebep\");\r\n\r\n  if(!interaction.member.permissions.has(\"MuteMembers\")) return interaction.reply(\"Bu işlem için üyeleri mutele yetkisine ihtiyacın var!\");\r\n\r\n  if (member.isCommunicationDisabled()) member.timeout(null), interaction.reply(`${member.user.tag}, adlı kullanıcının zaman aşımı kaldırıldı.`);\r\n  else member.timeout(time ? ms(time) : ms(\"12h\")), interaction.reply(`**<@!${member.user.id}>** adlı kullanıcı **${sebep}** sebebiyle,**${time}**  süreliğine susturuldu.`);\r\n},\r\n};",
+                "kod_rank": "altin",
+                "k_adi": "PsychoPath",
+                "date": "11/22/2022"
             }
         }
     }

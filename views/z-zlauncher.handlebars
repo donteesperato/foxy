@@ -1,83 +1,74 @@
-<html>
 
-<head>
-    <title>Sohbet
-  </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-</head>
 
-<body>
-    <div class="row" style="margin-top:40px;">
-        <div class="container">
-            <div class="card bg-light" style="height:80%;">
-                <div class="card-header">
-                    Sohbet Uygulaması
-                </div>
-                <div class="card-body" style="max-height: 80%;overflow-y: auto;">
-                    <!-- Giriş ekranı tasarımı başlangıcı -->
-                    <div id="girisEkrani" >
-                        <div class="row">
-                            <div class="col-md-4 offset-md-4">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="kullanici_adi">@</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Kullanıcı adı giriniz"
-                                        aria-label="Kullanıcı adı giriniz" aria-describedby="kullanici_adi" id="kadi">
-                                </div>
-                                <button type="button" onclick="uyeKaydet();" class="form-control btn btn-success">Giriş Yap</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Giriş ekranı tasarımı bitiş -->
 
-                    <div id="chatEkrani" style="display:none;">
-                        <div class="row">
-                            <div id="mesajAlani" class="col-md-12">
-                                
-                            </div>
-                            <div id="yeniMesajAlani" class="col-md-12" style="position: absolute;bottom: 10;">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="mesaj"
-                                            placeholder="Mesaj yazınız.." />
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button type="button" onclick="mesajGonder();" class="form-control btn btn-success">Gönder</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<title>PsychoPath Technology | PsychoGame Beta</title>
+<br><br>
+  <h1 class="text-center text-light font-weight-bolder">
+PsychoGame Beta  </h1>
+
+
+<div class="container">
+  <input id="search" type="text" class="form-control" placeholder="Oyun Ara" aria-label="Oyun Ara" aria-describedby="basic-addon2">
+</div><br>
+
+<div style="margin-left: 0.1rem; margin-right: 0.1rem;" class="row row-cols-1 row-cols-md-4">
+
+  <div class="col mb-1">
+  <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+  <div class="card-header"><center><img src="https://images-ext-1.discordapp.net/external/N3yqJ6THfT8ilYAQ_fMUg-5kmy_kgyd_72wQmm4Bgp4/%3Fsize%3D1024/https/cdn.discordapp.com/icons/935200258110156881/e141a72ef063ee303b62561815eb8e23.png?width=427&height=427" alt="avatar" style="border-width: 3rem; border: solid;border-radius: 50%; max-width: 100%; height: 7rem;"></center> </br><b><center></center></b></div>
+  <div class="card-body">
+    <p class="card-text avatar"><b>Oyun: Call of War</b> </p>
+    <p class="card-text avatar"><b>Açıklama:</b> Çok oyunculu olarak oynanacak 1 numaralı gerçek zamanlı WW2 strateji oyunu.</p>
+      <a class="btn btn-outline-warning nav-link text-uppercase" href="/cow"> <b>Oyna </b></a>
+
+  </div>
     </div>
-</body>
+</div>
 
-<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-database.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyCtSf4MPyJktuIX774VogmvsORjMXfClvc",
-        authDomain: "sohbet-uygulamasi-1dec6.firebaseapp.com",
-        databaseURL: "https://sohbet-uygulamasi-1dec6.firebaseio.com",
-        projectId: "sohbet-uygulamasi-1dec6",
-        storageBucket: "sohbet-uygulamasi-1dec6.appspot.com",
-        messagingSenderId: "138065161828"
-    };
-    firebase.initializeApp(config);
-</script>
-<script src="functions.js"></script>
-</html>
+  <div class="col mb-1">
+  <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+  <div class="card-header"><center><img src="https://static.oyungemisi.com/3/113813/96463/672x448/goodgame-empire-world-war-3.webp" alt="avatar" style="border-width: 3rem; border: solid;border-radius: 50%; max-width: 100%; height: 7rem;"></center> </br><b><center></center></b></div>
+  <div class="card-body">
+    <p class="card-text avatar"><b>Oyun: Empire: World War III</b> </p>
+    <p class="card-text avatar"><b>Açıklama:</b> Savaş başladı! Üssünüzü kurun, birliklerinizi eğitin ve onları harekete geçirin. Tüm zamanların en şiddetli rekabetine dayanabilir misin?7/24 kesintisiz, aksiyon dolu bir oyunun keyfini çıkarın...</p>
+      <a class="btn btn-outline-warning nav-link text-uppercase" href="/eww3"> <b>Oyna </b></a>
+
+  </div>
+    </div>
+</div>
+
+  <div class="col mb-1">
+  <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+  <div class="card-header"><center><img src="https://play-lh.googleusercontent.com/m58-6W65EMZ5JRSIf3l_BMq2TUS1JMc3AeKal_Z6IVmFLluv2sYUg2bt2CrhZ3FLAaA" alt="avatar" style="border-width: 3rem; border: solid;border-radius: 50%; max-width: 100%; height: 7rem;"></center> </br><b><center></center></b></div>
+  <div class="card-body">
+    <p class="card-text avatar"><b>Oyun: 3d Bowling</b> </p>
+    <p class="card-text avatar"><b>Açıklama:</b> Bowling</p>
+      <a class="btn btn-outline-warning nav-link text-uppercase" href="/bowling"> <b>Oyna </b></a>
+
+  </div>
+    </div>
+</div>
+
+  <div class="col mb-1">
+  <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+  <div class="card-header"><center><img src="https://scoutlife.org/wp-content/uploads/2017/03/chess-1.jpg?w=620" alt="avatar" style="border-width: 3rem; border: solid;border-radius: 50%; max-width: 100%; height: 7rem;"></center> </br><b><center></center></b></div>
+  <div class="card-body">
+    <p class="card-text avatar"><b>Satranç</b> </p>
+    <p class="card-text avatar"><b>Açıklama:</b> 2 kişilik ve botla oynayabileceğiniz satranç oyunu</p>
+      <a class="btn btn-outline-warning nav-link text-uppercase" href="/chess"> <b>Oyna </b></a>
+
+  </div>
+    </div>
+</div>
+
+
+
+</div>
+<!--Start of Tawk.to Script-->
+<script src="//code.tidio.co/wnbubljansidf3tl7zkc2kxgjc8cw6g9.js" async></script>
+<!-- KAR-->
+<script type="text/javascript" src="https://webkodu.ozgurlukicin.com/kod-kaynak/wk-kar-efekt.js"></script>
+<!-- KAR-->
+
+
+<!--End of Tawk.to Script-->

@@ -70,6 +70,48 @@
                 "kod_rank": "bdfd",
                 "k_adi": "PsychoPath",
                 "date": "11/16/2022"
+            },
+            "Taş Kağıt makas": {
+                "isim": "Taş Kağıt makas",
+                "id": "fBviEvP8Xo",
+                "desc": "Tkm",
+                "modules": [
+                    "BDScript"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/948970965939912725/ef3caeb0b97dd1aa9f3590e83f1980f9.png",
+                "main_code": "$nomention\r\n$color[f602cf]\r\n$title[Taş, Kağıt,Makas]\r\n$description[Sen; $noMentionMessage\r\n<@$mentioned[1]>;$randomText[Taş;Kağıt;Makas]]\r\n$argsCheck[>2;Lütfen ilk önce birini etiketleyip taş, kağıt, makas yazın]",
+                "komutlar_code": "yok",
+                "kod_rank": "bdfd",
+                "k_adi": "TersOyunda",
+                "date": "11/26/2022"
+            },
+            "Aşk ölç": {
+                "isim": "Aşk ölç",
+                "id": "6WfZWbOcZu",
+                "desc": "Aşk ölç",
+                "modules": [
+                    "BDScript"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/948970965939912725/ef3caeb0b97dd1aa9f3590e83f1980f9.png",
+                "main_code": "$argsCheck[>1;Birini Etiketlemelisin]\r\n$nomention\r\n$color[#ff2025]\r\n$title[O kişiyi ne kadar seviyosun  yada seviliyosun]\r\n$description[\r\n$username onu ne kadar seviyor <@$mentioned[<]>$randomText[%0;%5💛;%10💛💛olmaz sal bunu;%15💛💛💛;%20💛💛💛💛sanki;%25💛💛💛💛💛;%30💛💛💛💛💛💛eh işte;%35💛💛💛💛💛💛💛;%40💛💛💛💛💛💛💛💛daha iyi olabilir;%45💛💛💛💛💛💛💛💛💛;%50💛💛💛💛💛💛💛💛💛💛yanii iyi gibi;%55💚;%60💚💚Olr gibi ne dersin;%65💚💚💚;%70💚💚💚💚onu çok seviyorsun;%75💚💚💚💚💚;%80💚💚💚💚💚💚bu büyük bir aşkın başlangıcı olabilirmi;%85💚💚💚💚💚💚💚;%90💚💚💚💚💚💚💚💚çok iyi bir çiftsiniz couple yapmaya ne dersiniz?;%95💚💚💚💚💚💚💚💚💚;%100💝siz birbiriniz için yaratılmışsınız]]",
+                "komutlar_code": "yok",
+                "kod_rank": "bdfd",
+                "k_adi": "TersOyunda",
+                "date": "11/26/2022"
+            },
+            "dans": {
+                "isim": "dans",
+                "id": "1OKAxU1bu3",
+                "desc": "Dans",
+                "modules": [
+                    "BDScript"
+                ],
+                "icon": "https://cdn.discordapp.com/avatars/948970965939912725/ef3caeb0b97dd1aa9f3590e83f1980f9.png",
+                "main_code": "$argsCheck[>1;Tek Başına Dans Etme Sen Bir Yıkık Deilsin!! Birine Etiket At]\r\n$nomention\r\n$color[ff2025]\r\n$title[O ZAMAN DANS]\r\n$description[$username haydi dansa<@$mentioned[<]>$randomText[<a:dans:811020896641744917>;Başka Bir Partner Buldu;<a:botiingifemoji:811017009236017232>;<a:dans2:811028819980320799>;<a:dans8:811030010809810985>;<a:dans7:811029971127762984>; <a:dans6:811029941995044885>;<a:dans5:811029905121869844>;<a:dans3:811029838801797121>]\r\n]",
+                "komutlar_code": "yok",
+                "kod_rank": "bdfd",
+                "k_adi": "TersOyunda",
+                "date": "11/26/2022"
             }
         }
     }

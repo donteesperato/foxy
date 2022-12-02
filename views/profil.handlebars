@@ -1,7 +1,11 @@
-<title>RabeL Code | {{member.user.username}}</title> <br><br> <div class="container">
-    <div>
+<title>PsychoPath Technology | {{member.user.username}}</title>
 
-      <center>
+  <div class="twPc-div bg-dark">
+    <a class="twPc-bg twPc-block"></a>
+    <div>
+      <div class="twPc-button">
+        <a href="https://discordapp.com/users/{{member.user.id}}" class="btn btn-primary btn-sm">Discord</a>  
+      </div>
       <a href="https://discordapp.com/users/{{member.user.id}}" class="twPc-avatarLink">
         <img alt="Avatar" src="{{avatarURL}}" class="twPc-avatarImg">
       </a>
@@ -9,56 +13,51 @@
         <div class="twPc-divName">
           {{member.user.username}}
         </div>
-
-        
-        <div class="twPc-divStats">
-        <ul class="twPc-Arrange">
-          <a href="/normal" style="text-decoration:none" class="index-button1"><i class="fas fa-code"></i> Normal Kodlar</a>
+        <span>
           {{#if perms.yetkili}}
-       <a href="/altin"  style="text-decoration:none" class="index-button2"><i class="fas fa-code"></i> Altın Kodlar</a>
-       <a href="/elmas" style="text-decoration:none" class="index-button3"><i class="fas fa-code"></i> Elmas Kodlar</a>
-       <a href="/hazir" style="text-decoration:none" class="index-button4"><i class="fas fa-code"></i> Hazır Sistemler</a>
+            <span>Kod Paylaşım Yetkilisi</span>
           {{else}}
             {{#if perms.destekçi}}
-            <a href="/altin"  style="text-decoration:none" class="index-button2"><i class="fas fa-code"></i> Altın Kodlar</a>
-            <a href="/elmas" style="text-decoration:none" class="index-button3"><i class="fas fa-code"></i> Elmas Kodlar</a>
-            <a href="/hazir" style="text-decoration:none" class="index-button4"><i class="fas fa-code"></i> Hazır Sistemler</a>
+              <span> Destekçi</span>
+            {{else}}
+              <span>Üye</span>
+            {{/if}}
+          {{/if}}
+        </span>
+        {{#if stats}}
+          <span> | Paylaşılan: {{stats.paylasilan}} - Silinen: {{stats.silinen}} </span>
+        {{/if}}        
+      </div>
+      <div class="twPc-divStats">
+        <h3> Görebildiği Kodlar</h3>
+        <ul class="twPc-Arrange">
+          <li class="twPc-ArrangeSizeFit"><span class="twPc-StatValue"><a class="btn btn-outline-secondary" href="/normal">Normal Kodlar</a></span></li>
+          {{#if perms.yetkili}}
+            <li class="twPc-ArrangeSizeFit"><span class="twPc-StatValue"><a class="btn btn-outline-warning" href="/altin">Altın Kodlar</a></span></li>
+            <li class="twPc-ArrangeSizeFit"><span class="twPc-StatValue"><a class="btn btn-outline-primary" href="/elmas">Elmas Kodlar</a></span></li>
+            <li class="twPc-ArrangeSizeFit"><span class="twPc-StatValue"><a class="btn btn-outline-danger" href="/hazir">Hazır Sistemler</a></span></li>
+          {{else}}
+            {{#if perms.destekçi}}
+              <li class="twPc-ArrangeSizeFit"><span class="twPc-StatValue"><a class="btn btn-outline-warning" href="/altin">Altın Kodlar</a></span></li>
+              <li class="twPc-ArrangeSizeFit"><span class="twPc-StatValue"><a class="btn btn-outline-primary" href="/elmas">Elmas Kodlar</a></span></li>
+              <li class="twPc-ArrangeSizeFit"><span class="twPc-StatValue"><a class="btn btn-outline-danger" href="/hazir">Hazır Sistemler</a></span></li>
             {{else}}
               {{#if perms.altin}}
-            <a href="/altin"  style="text-decoration:none" class="index-button2"><i class="fas fa-code"></i> Altın Kodlar</a>
+                <li class="twPc-ArrangeSizeFit"><span class="twPc-StatValue"><a class="btn btn-outline-warning" href="/altin">Altın Kodlar</a></span></li>
               {{/if}}
               {{#if perms.elmas}}
-            <a href="/elmas" style="text-decoration:none" class="index-button3"><i class="fas fa-code"></i> Elmas Kodlar</a>
+                <li class="twPc-ArrangeSizeFit"><span class="twPc-StatValue"><a class="btn btn-outline-primary" href="/elmas">Elmas Kodlar</a></span></li>
               {{/if}}
               {{#if perms.hazir}}
-           <a href="/hazir" style="text-decoration:none" class="index-button4"><i class="fas fa-code"></i> Hazır Sistemler</a>
+                <li class="twPc-ArrangeSizeFit"><span class="twPc-StatValue"><a class="btn btn-outline-danger" href="/hazir">Hazır Sistemler</a></span></li>
               {{/if}}
             {{/if}}
           {{/if}}  
         </ul>
       </div>
-        
-<hr>
-                <span>
-          {{#if perms.yetkili}}
-            <span>Kod Paylaşım Yetkilisi</span>
-          {{else}}
-            {{#if perms.destekçi}}
-              <span>RabeL Code Destekçisi</span>
-            {{else}}
-              <span>Kullanıcı</span>
-            {{/if}}
-          {{/if}}
-        </span>
     </div>
-        
-        Paylaştığı Kodlar <font color="red">&</font> Yardım Ettiği Kodlar ( <font color="#0069d9">{{#if stats}} {{stats.paylasilan}} {{/if}} </font> )
-
   </div>
-      </center>
 </div>
-
-
 
 
 <!-- KAR-->

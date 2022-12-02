@@ -99,12 +99,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.get(
-  "/giris",
-  passport.authenticate("discord", {
-    scope: scopes
-  })
-);
+
 app.get(
   "/callback",
   passport.authenticate("discord", {
@@ -632,7 +627,9 @@ app.get("/bowling", (req, res) => {
 });
 
 //Ticketler//
- app.get("/login", (req, res, next) => {
+  const channels = require("./channels.json");
+
+ app.get("/giris", (req, res, next) => {
       if (req.session.backURL) {
         req.session.backURL = req.session.backURL; 
       } else if (req.headers.referer) {
@@ -646,14 +643,13 @@ app.get("/bowling", (req, res) => {
       next();
     },
   passport.authenticate("discord"));
-    app.get("/callback", passport.authenticate("discord", { failureRedirect: "/error?code=999&message=We encountered an error while connecting." }), async (req, res) => {
-        if {
+    app.get("/callback", passport.authenticate("discord"), async (req, res) => {
         res.redirect(req.session.backURL || '/')
         client.users.fetch(req.user.id).then(async a => {
         client.channels.cache.get(channels.login).send(new Discord.MessageEmbed().setAuthor(a.username, a.avatarURL({dynamic: true})).setThumbnail(a.avatarURL({dynamic: true})).setColor("GREEN").setDescription(`[**${a.username}**#${a.discriminator}](https://op.xyz/user/${a.id}) user ** to the site** logged in.`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
         
         })
-        }
+        
     });
 
 

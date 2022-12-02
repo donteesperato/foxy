@@ -632,8 +632,29 @@ app.get("/bowling", (req, res) => {
 });
 
 //Ticketler//
-
-
+ app.get("/login", (req, res, next) => {
+      if (req.session.backURL) {
+        req.session.backURL = req.session.backURL; 
+      } else if (req.headers.referer) {
+        const parsed = url.parse(req.headers.referer);
+        if (parsed.hostname === app.locals.domain) {
+          req.session.backURL = parsed.path;
+        }
+      } else {
+        req.session.backURL = "/";
+       }
+      next();
+    },
+  passport.authenticate("discord"));
+    app.get("/callback", passport.authenticate("discord", { failureRedirect: "/error?code=999&message=We encountered an error while connecting." }), async (req, res) => {
+        if {
+        res.redirect(req.session.backURL || '/')
+        client.users.fetch(req.user.id).then(async a => {
+        client.channels.cache.get(channels.login).send(new Discord.MessageEmbed().setAuthor(a.username, a.avatarURL({dynamic: true})).setThumbnail(a.avatarURL({dynamic: true})).setColor("GREEN").setDescription(`[**${a.username}**#${a.discriminator}](https://op.xyz/user/${a.id}) user ** to the site** logged in.`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
+        
+        })
+        }
+    });
 
 
 

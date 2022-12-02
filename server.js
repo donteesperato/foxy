@@ -99,7 +99,12 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.get(
+  "/giris",
+  passport.authenticate("discord", {
+    scope: scopes
+  })
+);
 app.get(
   "/callback",
   passport.authenticate("discord", {
@@ -627,30 +632,7 @@ app.get("/bowling", (req, res) => {
 });
 
 //Ticketler//
-  const channels = require("./channels.json");
 
- app.get("/giris", (req, res, next) => {
-      if (req.session.backURL) {
-        req.session.backURL = req.session.backURL; 
-      } else if (req.headers.referer) {
-        const parsed = url.parse(req.headers.referer);
-        if (parsed.hostname === app.locals.domain) {
-          req.session.backURL = parsed.path;
-        }
-      } else {
-        req.session.backURL = "/";
-       }
-      next();
-    },
-  passport.authenticate("discord"));
-    app.get("/callback", passport.authenticate("discord"), async (req, res) => {
-        res.redirect(req.session.backURL || '/')
-        client.users.fetch(req.user.id).then(async a => {
-        client.channels.cache.get(channels.login).send(new Discord.MessageEmbed().setAuthor(a.username, a.avatarURL({dynamic: true})).setThumbnail(a.avatarURL({dynamic: true})).setColor("GREEN").setDescription(`[**${a.username}**#${a.discriminator}](https://op.xyz/user/${a.id}) user ** to the site** logged in.`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
-        
-        })
-        
-    });
 
 
 

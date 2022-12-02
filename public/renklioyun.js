@@ -1,4 +1,4 @@
-var text=""
+var text="Beta"
 var speed=24 // SPEED OF FADE
 if (document.all||document.getElementById){
 document.write('<span id="highlight">' + text + '</span>')

@@ -744,7 +744,7 @@ app.post("/paylasim", (req, res) => {
   let obj = {
     author: req.auth,
     isim: req.body.kod_adi,
-    id: randomString({ length: 10 }),
+    id: randomString({ length: 20 }),
     desc: req.body.desc,
     modules: req.body.modules.split(","),
     icon: req.user

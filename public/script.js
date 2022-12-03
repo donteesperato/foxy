@@ -47,7 +47,11 @@ function copyTextToClipboard(text) {
     console.error('kod kopyalanamadı: ', err);
   });
 }
+   
 
+
+
+//SağtıkEngel<!--End of Tawk.to Script-->
   window.onload = function() {
     document.addEventListener("contextmenu", function(e){
       e.preventDefault();

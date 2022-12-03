@@ -51,7 +51,8 @@ function copyTextToClipboard(text) {
 
 
 
-//SağtıkEngel<!--End of Tawk.to Script-->
+//SağtıkEngel
+  /*
   window.onload = function() {
     document.addEventListener("contextmenu", function(e){
       e.preventDefault();
@@ -82,4 +83,6 @@ function copyTextToClipboard(text) {
       e.preventDefault();
       return false;
     }
-  };
+  };   
+  */
+//SağtıkEngel

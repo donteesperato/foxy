@@ -27,24 +27,24 @@ for (let rank in ranks) {
 
 
 const IDler = {
-  botID: "987372212845674536",
-  botSecret: "PzDnEaYe9fleT5MYs1X3Sjz45IrSYMiH",
+  botID: "",
+  botToken: "",
+  botSecret: "",
   botCallbackURL: "https://psychopath-techonology.ml/callback",
   sunucuID: "854750196315062302",
   sunucuDavet: "https://discord.gg/3J6n8RTqen",
-  kodLogKanalı: "998165577615020072",
-  sahipRolü: "998676085036294144",
-  bdfd: "1033365155255427133",
-  adminRolü: "1011561449484722246",
-  kodPaylaşımcıRolü: "1011561449484722246",
-  boosterRolü: "856130970591952929",
-  kodPaylaşamayacakRoller: ["1011561858597142529", "1011561858597142529"],
-  hazırAltyapılarRolü: "998160005024985208",
-  hazırSistemlerRolü: "998160005024985208",
-  elmasKodlarRolü: "998156159406063616",
-  altınKodlarRolü: "998166165782278185",
-  ticktyasakrol: [],
-  normalKodlarRolü: "998166325698498680"};
+  kodLogKanalı: "",
+  sahipRolü: "",
+  bdfd: "",
+  adminRolü: "",
+  kodPaylaşımcıRolü: "",
+  boosterRolü: "",
+  kodPaylaşamayacakRoller: ["", ""],
+  hazırAltyapılarRolü: "",
+  hazırSistemlerRolü: "",
+  elmasKodlarRolü: "",
+  altınKodlarRolü: "",
+  normalKodlarRolü: ""};
   
 const app = express();
 
@@ -587,77 +587,8 @@ app.get("/sil/:rank/:id", (req, res) => {
 });
 
 
-//Ticketler//
 
 
-    
-
-
-app.get("/z-birgol", (req, res) => {
-   if (
-    !req.user ||
-    !client.guilds.cache.get(IDler.sunucuID).members.cache.has(req.user.id)
-  )
-    return res.redirect(
-      url.format({
-        pathname: "/hata",
-        query: {
-          statuscode: 138,
-          message:
-            "Tickete bakabilmek için Discord sunucumuza katılmanız ve siteye giriş yapmanız gerekmektedir."
-        }
-      })
-    );
-  res.render("z-birgol", {
-    user: req.user
-  });
-});
-
-
-app.get("/psychogame-beta", (req, res) => {
-  res.render("z-zlauncher", {
-    user: req.user
-  });
-});
-
-app.get("/chess", (req, res) => {
-  res.render("game-chess", {
-    user: req.user
-  });
-});
-app.get("/bowling", (req, res) => {
-  res.render("game-bowling", {
-    user: req.user
-  });
-});
-
-//Ticketler//
-
-
-
-
-//GAME//
-
-
-app.get("/cow", (req, res) => {
-  res.render("game-cow", {
-    user: req.user
-  });
-});
-app.get("/eww3", (req, res) => {
-  res.render("game-eww3", {
-    user: req.user
-  });
-});
-//GAME//
-
-
-
-app.get("/ekip", (req, res) => {
-  res.render("ekip", {
-    user: req.user
-  });
-});
 
 
 
@@ -669,11 +600,7 @@ app.get("/videolar", (req, res) => {
   });
 });
 
-app.get("/ticket", (req, res) => {
-    res.render("ticket", {
-    user: req.user
-  });
-});
+
 
 app.get("/sss", (req, res) => {
   res.render("sss", {
@@ -817,7 +744,7 @@ app.use((req, res) => {
   );
 });
 
-client.login(process.env.botToken);
+client.login(IDler.botToken);
 
 client.on("ready", () => {
   const listener = app.listen(process.env.PORT, function() {

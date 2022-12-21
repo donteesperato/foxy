@@ -589,7 +589,11 @@ app.get("/sil/:rank/:id", (req, res) => {
 
 
 
-
+app.get("/ekip", (req, res) => {
+  res.render("ekip", {
+    user: req.user
+  });
+});
 
 
 
